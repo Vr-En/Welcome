@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClasMeyt - Senior High Portal</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="welcome1.css" />
+
+    <!-- Element SDKs -->
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
+    
+    </head>
+
+    <body class="h-screen bg-[url('images/Background.png')] bg-cover bg-center bg-no-repeat bg-fixed">
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+        <div class="logo">
+        <div class="flex items-center space-x-3">
+                        <img src="images/Logo.png" alt="ClasMeyt Logo" class="w-12 h-12 object-contain">
+                    </div>
+        <span id="site-title">ClasMeyt</span>
+        </div>
+
+        <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+        <button class="btn btn-secondary" onclick="openModal('loginModal')">
+            Login
+            </button>
+            <button class="btn btn-primary" onclick="openModal('registerModal')">
+            Register
+            </button>
+        </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+        <h1 id="hero-headline">Welcome to ClasMeyt</h1>
+        <p id="hero-subtitle">
+        Discover and Learn  Different Seniorhigh Courses, boost your knowledges and earn badges.    
+        </p>
+        <button class="btn btn-primary" onclick="openModal('registerModal')">
+        Get Started
+        </button>
+        <button class="btn btn-secondary" onclick="scrollToSection('how-it-works')">
+        Learn More
+        </button>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section how-it-works">
+        <h2 id="how-it-works-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+            <div class="step-icon">👨‍🎓</div>
+            <h3>Sign Up</h3>
+            <p>
+            Create your account in seconds with our simple registration process.
+            No complicated forms or lengthy verification.
+            </p>
+            </div>
+            <div class="step">
+            <div class="step-icon">🔍</div>
+            <h3>Explore Courses</h3>
+            <p>
+            Enroll to Seniorhigh subjects you want to Learn.
+            </p>
+            </div>
+            <div class="step">
+            <div class="step-icon">🖌️</div>
+            <h3>Claim Badges</h3>
+            <p>
+            Start Enrolling and complete your courses
+            the more Courses you finish more badges you can earn.
+            </p>
+            </div>
+        </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+        <h2 id="contact-title">Contact Us</h2>
+        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div id="contact-success" class="success-message">
+            Thank you for your message! We'll get back to you soon.
+        </div>
+
+        <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Enter your Name" required />
+            </div>
+
+        <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" placeholder="Enter your Email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" name="subject" placeholder="Subject" required />
+        </div>
+
+        <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea
+            id="contact-message"
+            name="message"
+            required
+            placeholder="Tell us how we can help you..."
+            ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2 class=" text-2xl text-bold text-gray-800">Login</h2>
+
+        <form onsubmit="handleLogin(event)">
+        <div id="login-success" class="success-message">
+            Welcome back! You've successfully logged in.
+        </div>
+
+        <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Student ID</label>
+        <input id="username" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your student ID" required>
+        </div>
+
+        <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2">Password</label>
+        <input id="password" type="password" class="w-full p  x-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your password" required>
+        </div>
+        <button onclick="login()" type="submit" class="btn btn-primary">Login</button>
+        <script>
+        function login() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (username === '' || password === '') {
+        alert('Please enter both username and password.');
+        return;
+        }
+
+      // In real systems you'd check credentials from a database,
+      // but for now we’ll just store the username.
+        localStorage.setItem('loggedUser', username);
+
+      // Redirect to ClasMeyt dashboard
+        window.location.href = 'ClasMeyt.html';
+    }
+    </script>
+        </form>
+
+        <div class="switch-form">
+        Don't have an account?
+        <a onclick="switchModal('loginModal', 'registerModal')" class="text-indigo-500 hover:text-indigo-600">Register here</a>
+        </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2 class="text-2xl font-bold text-gray-800" >Join ClasMeyt</h2>
+
+        <form onsubmit="handleRegister(event)">
+        <div id="register-success" class="success-message">
+            Account created successfully! Welcome to ClasMeyt.
+        </div>
+
+        <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Full Name</label>
+        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Student ID</label>
+        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your student ID" required>
+        </div>
+
+        <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Grade Level</label>
+        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+            <option value="">Select grade level</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+        </select>
+        </div>
+
+        <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2">Password</label>
+        <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Create a password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+
+        <div class="switch-form">
+        Already have an account?
+        <a onclick="switchModal('registerModal', 'loginModal')" class="text-indigo-500 hover:text-indigo-600 " href="#login-here">Login here</a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="welcome2.js"></script>
+</html>
