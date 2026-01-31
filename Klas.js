@@ -1,944 +1,2483 @@
 
-        const courses = [
-            {
-                id: 1,
-                name: "Advanced Mathematics",
-                subject: "Math",
-                teacher: "Ms. Ming-ming",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Master advanced mathematical concepts including calculus, statistics, and algebraic functions. This course prepares students for college-level mathematics.",
-                topics: ["Calculus Fundamentals", "Statistical Analysis", "Advanced Algebra", "Trigonometry", "Mathematical Modeling"],
-                badgeRequirement: "Complete all modules with 80% or higher average",
-                lessons: [
-                    {
-                        title: "Introduction to Limits",
-                        duration: "45 min",
-                        content: "Understanding the concept of limits is fundamental to calculus. A limit describes the value that a function approaches as the input approaches some value.",
-                        objectives: ["Define what a limit is", "Calculate basic limits", "Understand continuity"],
-                        completed: null
-                    },
-                    {
-                        title: "Derivative Fundamentals",
-                        duration: "60 min",
-                        content: "Derivatives measure how a function changes as its input changes. This is the foundation for understanding rates of change in mathematics.",
-                        objectives: ["Calculate derivatives using basic rules", "Apply the power rule", "Understand geometric interpretation"],
-                        completed: null
-                    },
-                    {
-                        title: "Applications of Derivatives",
-                        duration: "50 min",
-                        content: "Learn how derivatives are used in real-world scenarios including optimization problems and motion analysis.",
-                        objectives: ["Solve optimization problems", "Analyze motion", "Find critical points"],
-                        completed: null
-                    }
-                ],
-                practices: [
-                    {
-                        title: "Limit Calculation Practice",
-                        type: "Problem Set",
-                        problems: 15,
-                        timeLimit: "30 min",
-                        difficulty: "Beginner",
-                        completed: null,
-                        score: 0
-                    },
-                    {
-                        title: "Derivative Rules Worksheet",
-                        type: "Interactive",
-                        problems: 20,
-                        timeLimit: "45 min",
-                        difficulty: "Intermediate",
-                        completed: null,
-                        score: 0
-                    },
-                    {
-                        title: "Real-World Applications",
-                        type: "Project",
-                        problems: 5,
-                        timeLimit: "2 hours",
-                        difficulty: "Advanced",
-                        completed: null,
-                        score: null
-                    }
-                ],
-                quiz: {
-                    title: "Chapter 1: Limits and Derivatives",
-                    questions: [
-                        { question: "What is the limit of f(x) = x² as x approaches 2?", options: ["2", "4", "8", "16"], correct: 1 },
-                        { question: "The derivative of x³ is:", options: ["x²", "3x²", "3x", "x³"], correct: 1 }
-                    ]
-                },
-                examples: [
-                    { title: "Finding Limits", description: "Step-by-step process to calculate limits using algebraic methods" },
-                    { title: "Derivative Applications", description: "Real-world applications of derivatives in physics and economics" }
-                ],
-                resources: [
-                    { name: "Calculus Reference Guide", type: "PDF", size: "2.3 MB" },
-                    { name: "Practice Problems Set 1", type: "PDF", size: "1.8 MB" },
-                    { name: "Graphing Calculator Tutorial", type: "Video", size: "45 MB" }
-                ]
-            },
-            {
-                id: 2,
-                name: "Physics Fundamentals",
-                subject: "Science",
-                teacher: "Mr. Kupal",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Explore the fundamental principles of physics including mechanics, thermodynamics, and electromagnetism through hands-on experiments and theoretical study.",
-                topics: ["Classical Mechanics", "Thermodynamics", "Electromagnetism", "Wave Physics", "Modern Physics"],
-                badgeRequirement: "Complete lab experiments and maintain 85% average",
-                lessons: [
-                    {
-                        title: "Newton's Laws of Motion",
-                        duration: "55 min",
-                        content: "Explore the three fundamental laws that govern motion in our universe, from everyday objects to celestial bodies.",
-                        objectives: ["Understand each of Newton's three laws", "Apply laws to solve problems", "Analyze force diagrams"],
-                        completed: null
-                    },
-                    {
-                        title: "Energy and Work",
-                        duration: "50 min",
-                        content: "Learn about different forms of energy and how work relates to energy transfer in physical systems.",
-                        objectives: ["Define kinetic and potential energy", "Calculate work done by forces", "Apply conservation of energy"],
-                        completed: null
-                    },
-                    {
-                        title: "Waves and Sound",
-                        duration: "65 min",
-                        content: "Understand wave properties, sound propagation, and the physics behind musical instruments.",
-                        objectives: ["Describe wave characteristics", "Calculate wave speed", "Explain sound phenomena"],
-                        completed: null
-                    }
-                ],
-                practices: [
-                    {
-                        title: "Force and Motion Problems",
-                        type: "Lab Simulation",
-                        problems: 12,
-                        timeLimit: "40 min",
-                        difficulty: "Beginner",
-                        completed: null,
-                        score: 0
-                    },
-                    {
-                        title: "Energy Conservation Lab",
-                        type: "Hands-on Lab",
-                        problems: 8,
-                        timeLimit: "90 min",
-                        difficulty: "Intermediate",
-                        completed: null,
-                        score: 0
-                    },
-                    {
-                        title: "Wave Analysis Project",
-                        type: "Research Project",
-                        problems: 3,
-                        timeLimit: "1 week",
-                        difficulty: "Advanced",
-                        completed: null,
-                        score: null
-                    }
-                ],
-                quiz: {
-                    title: "Motion and Forces Quiz",
-                    questions: [
-                        { question: "Newton's first law states that:", options: ["F=ma", "Objects at rest stay at rest", "Action equals reaction", "Energy is conserved"], correct: 1 },
-                        { question: "The unit of force is:", options: ["Joule", "Newton", "Watt", "Pascal"], correct: 1 }
-                    ]
-                },
-                examples: [
-                    { title: "Projectile Motion", description: "Calculate trajectory of objects under gravity" },
-                    { title: "Circuit Analysis", description: "Analyze simple electrical circuits using Ohm's law" }
-                ],
-                resources: [
-                    { name: "Physics Formula Sheet", type: "PDF", size: "1.5 MB" },
-                    { name: "Lab Manual", type: "PDF", size: "5.2 MB" },
-                    { name: "Simulation Software", type: "Software", size: "120 MB" }
-                ]
-            },
-            {
-                id: 3,
-                name: "English Literature",
-                subject: "English",
-                teacher: "Mrs. Ampang",
-                enrolled: null,
-                progress:  0,
-                badge: null,
-                overview: "Analyze classic and contemporary literature, develop critical thinking skills, and improve writing techniques through comprehensive study of various literary genres.",
-                topics: ["Poetry Analysis", "Novel Studies", "Drama and Theater", "Creative Writing", "Literary Criticism"],
-                badgeRequirement: "Submit all essays and achieve 80% on final portfolio",
-                discussions: [
-                    { author: "Mrs. Davis", time: "1 day ago", message: "Please read chapters 1-3 of 'To Kill a Mockingbird' for our discussion tomorrow." },
-                    { author: "Emma L.", time: "4 hours ago", message: "The symbolism in this novel is incredible!" }
-                ],
-                quiz: {
-                    title: "Poetry Elements Quiz",
-                    questions: [
-                        { question: "What is a metaphor?", options: ["Direct comparison", "Indirect comparison", "Sound repetition", "Rhythm pattern"], correct: 1 },
-                        { question: "Iambic pentameter has how many syllables per line?", options: ["8", "10", "12", "14"], correct: 1 }
-                    ]
-                },
-                examples: [
-                    { title: "Sonnet Analysis", description: "Breaking down Shakespeare's Sonnet 18" },
-                    { title: "Character Development", description: "Tracking character arcs in modern novels" }
-                ],
-                resources: [
-                    { name: "Literary Terms Glossary", type: "PDF", size: "800 KB" },
-                    { name: "Essay Writing Guide", type: "PDF", size: "1.2 MB" },
-                    { name: "Audio Book Collection", type: "Audio", size: "2.1 GB" }
-                ]
-            },
-            {
-                id: 4,
-                name: "World History",
-                subject: "History",
-                teacher: "Mr. Bossing",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Journey through major historical events, civilizations, and cultural developments that shaped our modern world from ancient times to the present.",
-                topics: ["Ancient Civilizations", "Medieval Period", "Renaissance", "Industrial Revolution", "Modern Era"],
-                badgeRequirement: "Complete research project and score 80% on comprehensive exam",
-                discussions: [
-                    { author: "Mr. Wilson", time: "2 days ago", message: "Excellent presentations on the Industrial Revolution! Next topic: World War impacts." },
-                    { author: "Alex K.", time: "6 hours ago", message: "The primary sources from WWI were eye-opening." }
-                ],
-                quiz: {
-                    title: "Ancient Civilizations Quiz",
-                    questions: [
-                        { question: "Which river was crucial to Egyptian civilization?", options: ["Tigris", "Euphrates", "Nile", "Indus"], correct: 2 },
-                        { question: "The Roman Empire fell in:", options: ["410 AD", "476 AD", "500 AD", "550 AD"], correct: 1 }
-                    ]
-                },
-                examples: [
-                    { title: "Primary Source Analysis", description: "Examining historical documents and artifacts" },
-                    { title: "Timeline Creation", description: "Building comprehensive historical timelines" }
-                ],
-                resources: [
-                    { name: "World History Atlas", type: "PDF", size: "15 MB" },
-                    { name: "Documentary Collection", type: "Video", size: "8.5 GB" },
-                    { name: "Historical Maps Pack", type: "Images", size: "250 MB" }
-                ]
-            },
-            {
-                id: 5,
-                name: "Computer Programming",
-                subject: "Technology",
-                teacher: "Ms. Ging-ging",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Learn fundamental programming concepts using Python and JavaScript. Build real-world applications and develop problem-solving skills through coding projects.",
-                topics: ["Python Basics", "JavaScript Fundamentals", "Web Development", "Data Structures", "Algorithm Design"],
-                badgeRequirement: "Complete final project and achieve 90% on coding assessments",
-                discussions: [
-                    { author: "Ms. Garcia", time: "5 hours ago", message: "Great progress on your web projects! Remember to test your code thoroughly." },
-                    { author: "David P.", time: "2 hours ago", message: "The JavaScript tutorial was really helpful!" }
-                ],
-                quiz: {
-                    title: "Python Fundamentals Quiz",
-                    questions: [
-                        { question: "Which keyword is used to define a function in Python?", options: ["function", "def", "define", "func"], correct: 1 },
-                        { question: "What does 'len()' function return?", options: ["Length", "Last element", "List", "Loop"], correct: 0 }
-                    ]
-                },
-                examples: [
-                    { title: "Building a Calculator", description: "Step-by-step calculator application development" },
-                    { title: "Web Scraping Basics", description: "Extract data from websites using Python" }
-                ],
-                resources: [
-                    { name: "Python Cheat Sheet", type: "PDF", size: "500 KB" },
-                    { name: "Code Examples", type: "ZIP", size: "2.8 MB" },
-                    { name: "Development Tools", type: "Software", size: "450 MB" }
-                ]
-            },
-            {
-                id: 6,
-                name: "Chemistry Lab",
-                subject: "Science",
-                teacher: "Dr. Kwak-kwak",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Hands-on laboratory experience exploring chemical reactions, molecular structures, and analytical techniques. Safety protocols and scientific method emphasized.",
-                topics: ["Atomic Structure", "Chemical Bonding", "Reactions & Equations", "Organic Chemistry", "Laboratory Techniques"],
-                badgeRequirement: "Complete all lab reports and pass safety certification",
-                discussions: [
-                    { author: "Dr. Brown", time: "1 day ago", message: "Safety reminder: Always wear goggles and follow proper disposal procedures." },
-                    { author: "Lisa T.", time: "8 hours ago", message: "The titration experiment results were surprising!" }
-                ],
-                quiz: {
-                    title: "Chemical Bonding Quiz",
-                    questions: [
-                        { question: "What type of bond forms between metals and non-metals?", options: ["Covalent", "Ionic", "Metallic", "Hydrogen"], correct: 1 },
-                        { question: "The periodic table is organized by:", options: ["Mass", "Atomic number", "Electrons", "Neutrons"], correct: 1 }
-                    ]
-                },
-                examples: [
-                    { title: "Balancing Equations", description: "Master the art of chemical equation balancing" },
-                    { title: "pH Calculations", description: "Understanding acids, bases, and pH scale" }
-                ],
-                resources: [
-                    { name: "Periodic Table Reference", type: "PDF", size: "1.1 MB" },
-                    { name: "Lab Safety Manual", type: "PDF", size: "3.2 MB" },
-                    { name: "Molecular Models", type: "3D Files", size: "85 MB" }
-                ]
-            },
-            {
-                id: 7,
-                name: "Art & Design",
-                subject: "Arts",
-                teacher: "Ms. Topacio",
-                enrolled: null,
-                progress: 0,
-                badge: null,
-                overview: "Explore various art forms and design principles through hands-on creative projects.",
-                topics: ["Drawing Fundamentals", "Color Theory", "Digital Design", "Art History", "Portfolio Development"],
-                badgeRequirement: "Complete portfolio with 10 original pieces" },
+  //  GLOBAL ENROLL
+  window.enrollCourse = function enrollCourse(courseId) {
+    console.log("ENROLL FUNCTION CALLED:", courseId);
 
 
-            {
-                id: 8,  
-                name: "Spanish Language",
-                subject: "Foreign Languange",
-                teacher: "Señora Martinez",
-                enrolled: false,
-                progress: 0,
-                badge: null, overview: "Develop conversational Spanish skills through immersive learning techniques.", topics: ["Basic Grammar", "Vocabulary Building", "Conversation Practice", "Cultural Studies", "Writing Skills"], badgeRequirement: "Pass oral proficiency exam" },
+    if (!Array.isArray(window.courses)) {
+      alert(" Courses not loaded");
+      return;
+    }
 
 
-            {
-                id: 9,
-                name: "Economics",
-                subject: "Social Studies",
-                teacher: "Mr. Anderson",
-                enrolled: false,
-                progress: 0,
-                badge: null,
-                overview: "Understand economic principles and their real-world applications.",
-                topics: ["Supply & Demand", "Market Systems", "Personal Finance", "Global Economics", "Economic Policy"],
-                badgeRequirement: "Complete market analysis project" },
+    const course = window.courses.find(c => Number(c.id) === Number(courseId));
+    if (!course) {
+      alert(" Course not found");
+      return;
+    }
 
 
-            {
-                id: 10,
-                name: "Biology",
-                subject: "Science",
-                teacher: "Dr. Lee",
-                enrolled: false,
-                progress: 0,
-                badge: null,
-                overview: "Study living organisms and biological processes through lab work and field studies.",
-                topics: ["Cell Biology", "Genetics", "Evolution", "Ecology", "Human Biology"], badgeRequirement: "Complete research project and lab practicum" },
+    // mark enrolled
+    course.enrolled = true;
+    course.progress = 0;
 
 
-            {
-                id: 11,
-                name: "Music Theory",
-                subject: "Arts",
-                eacher: "Mr. Thompson",
-                enrolled: false,
-                progress: 0,
-                badge: null,
-                overview: "Learn the fundamentals of music composition and analysis.",
-                topics: ["Scales & Modes", "Harmony", "Rhythm", "Composition", "Music History"],
-                badgeRequirement: "Compose and perform original piece" },
+    // safe init
+    if (!Array.isArray(course.lessons)) course.lessons = [];
+    if (!Array.isArray(course.practices)) course.practices = [];
+    if (!course.quiz) course.quiz = null;
 
 
-            {
-                id: 12,
-                name: "Physical Education",
-                subject: "PE",
-                teacher: "Coach Tse",
-                enrolled: false,
-                progress: 0,
-                badge: null,
-                overview: "Develop physical fitness and learn various sports and activities.",
-                topics: ["Fitness Training", "Team Sports", "Individual Sports", "Health Education", "Nutrition"],
-                badgeRequirement: "Meet fitness benchmarks and complete health project" }
-        ];
-            //teacher tab
-        const teachers = [
-            { name: "Ms. Ming-ming", subject: "Mathematics", email: "ming-ming@kupal.edu.ph", phone: "+63 9XX XXX XXXX", experience: "8 years" },
-            { name: "Mr. Kupal", subject: "Physics", email: "kupal@kuapal.edu.ph", phone: "+63 9XX XXX XXXX", experience: "12 years" },
-            { name: "Mrs. Ampang", subject: "English", email: "ampang@kupal.edu.ph", phone: "+63 9XX XXX XXXX", experience: "15 years" },
-            { name: "Mr. Bossing", subject: "History", email: "bossing@kupal.edu.ph", phone: "+63 9XX XXX XXXX", experience: "10 years" },
-            { name: "Ms. Ging-ging", subject: "Technology", email: "ging-ging@kupal.edu.ph", phone: "+63 9XX XXX XXXX", experience: "6 years" },
-            { name: "Dr. Kwak-kwak", subject: "Chemistry", email: "kwak-kwak@edu.ph.edu", phone: "+63 9XX XXX XXXX", experience: "20 years" }
-        ];
-            // badges part
-        const badges = [
-            { name: "Math Wizard", icon: "🧙‍♂️", color: "blue", earned: true },
-            { name: "Science Explorer", icon: "🔬", color: "green", earned: true },
-            { name: "Literary Scholar", icon: "📚", color: "purple", earned: true },
-            { name: "History Buff", icon: "🏛️", color: "yellow", earned: true },
-            { name: "Tech Innovator", icon: "💻", color: "indigo", earned: false },
-            { name: "Chemistry Master", icon: "⚗️", color: "red", earned: false }
-        ];
+    // UI refresh (guarded)
+    if (typeof updateAllCourses === "function") updateAllCourses();
+    if (typeof updateEnrolledCourses === "function") updateEnrolledCourses();
+    if (typeof updateStats === "function") updateStats();
+    if (typeof updateAccountInfo === "function") updateAccountInfo();
+    updateDashboardStats();
 
 
-        let currentCourse = null;
-        let currentTab = 'lessons';
+
+    // persist
+    if (typeof queueSaveUserState === "function") queueSaveUserState();
 
 
-        // Navigation
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.add('hidden');
-            });
-           
-            // Remove active class from all nav items
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-           
-            // Show selected section
-            document.getElementById(sectionId).classList.remove('hidden');
-           
-            // Add active class to clicked nav item
-            event.target.classList.add('active');
-           
-            // Update content based on section
-            if (sectionId === 'courses') {
-                updateAllCourses();
-            } else if (sectionId === 'my-courses') {
-                updateEnrolledCourses();
-            } else if (sectionId === 'teachers') {
-                updateTeachers();
-            } else if (sectionId === 'account') {
-                updateAccountInfo();
-            }
+    // close modal
+    if (typeof closeModal === "function") {
+      closeModal("courseOverviewModal");
+    }
+
+
+    alert(` Enrolled in ${course.name}`);
+  };
+
+
+
+  //  GLOBAL UNENROLL
+  window.unenrollCourse = function unenrollCourse(courseId) {
+    console.log(" UNENROLL FUNCTION CALLED:", courseId);
+
+
+    if (!Array.isArray(window.courses)) {
+      alert(" Courses not loaded");
+      return;
+    }
+
+
+    const course = window.courses.find(c => Number(c.id) === Number(courseId));
+    if (!course) {
+      alert(" Course not found");
+      return;
+    }
+
+
+    // reset enrollment
+    course.enrolled = false;
+    course.progress = 0;
+
+
+    // reset lesson progress
+    if (Array.isArray(course.lessons)) {
+      course.lessons.forEach(l => {
+        if (l.pages) l.pages.completed = false;
+      });
+    }
+
+
+    // reset practices
+    if (Array.isArray(course.practices)) {
+      course.practices.forEach(p => {
+        p.completed = false;
+        p.score = null;
+      });
+    }
+
+
+    // reset quiz
+    if (course.quiz) {
+      course.quiz.completed = false;
+      course.quiz.score = null;
+    }
+
+
+    // UI refresh
+    if (typeof updateAllCourses === "function") updateAllCourses();
+    if (typeof updateEnrolledCourses === "function") updateEnrolledCourses();
+    if (typeof updateStats === "function") updateStats();
+    if (typeof updateAccountInfo === "function") updateAccountInfo();
+    updateDashboardStats();
+
+
+
+    // persist
+    if (typeof queueSaveUserState === "function") queueSaveUserState();
+
+
+    alert(` Unenrolled from ${course.name}`);
+  };
+
+
+  function getAuth() {
+  try { return JSON.parse(localStorage.getItem("clasmeyt_auth") || "null"); }
+  catch { return null; }
+  }
+
+
+
+
+  function requireRole(allowed) {
+    const auth = getAuth();
+    if (!auth || !auth.id || !allowed.includes(auth.role)) {
+      window.location.href = "Welcome.html";
+      return null;
+  }
+  return auth;
+  }
+
+
+
+// badges part
+const badges = [
+{ name: "Math Wizard", icon: "badges/wizard.png", color: "blue", earned: false },
+{ name: "Science Explorer", icon: "badges/explore.png", color: "green", earned: false },
+{ name: "Literary Scholar", icon: "badges/literacy.png", color: "purple", earned: false },
+{ name: "History Buff", icon: "badges/history.png", color: "yellow", earned: false },
+{ name: "Tech Innovator", icon: "badges/techno.png", color: "indigo", earned: false },
+{ name: "Chemistry Master", icon: "badges/lab.png", color: "red", earned: false },
+];
+
+          let currentCourse = null;
+          let currentTab = 'lessons';
+
+  window.courses = [];
+
+
+// for overview bagde
+const SUBJECT_BADGE_MAP = {
+  "Mathematics": {
+    name: "Math Wizard",
+    icon: "badges/wizard.png",
+    description: "Awarded for mastering mathematical concepts."
+  },
+  "Math": {
+    name: "Math Wizard",
+    icon: "badges/wizard.png",
+    description: "Awarded for mastering mathematical concepts."
+  },
+  "Science": {
+    name: "Science Explorer",
+    icon: "badges/explore.png",
+    description: "Earned by completing science courses."
+  },
+  "History": {
+    name: "History Buff",
+    icon: "badges/history.png",
+    description: "Earned by completing science courses."
+  },
+  "Chemistry": {
+    name: "Chemistry Master",
+    icon: "badges/lab.png",
+    description: "Awarded for excellence in chemistry."
+  },
+  "ICT": {
+    name: "Tech Innovator",
+    icon: "badges/techno.png",
+    description: "Awarded for excellence in ICT and technology."
+  },
+  "English": {
+    name: "Literary Scholar",
+    icon: "badges/literacy.png",
+    description: "Awarded for language and literature mastery."
+  }
+};
+
+
+
+
+
+
+//for lesson
+  async function loadLessonsForCourse(courseId) {
+    try {
+      const res = await fetch(`student_get_lessons.php?course_id=${courseId}`);
+      const data = await res.json();
+
+
+      if (data.status !== "success") {
+        console.warn("No lessons returned");
+        return;
+      }
+
+
+      const course = courses.find(c => Number(c.id) === Number(courseId));
+      if (!course) return;
+
+
+  // preserve previous completion state
+  const prevLessons = Array.isArray(course.lessons) ? course.lessons : [];
+
+
+course.lessons = data.lessons.map((l, index) => {
+  let pages = {};
+
+
+  try {
+    pages = JSON.parse(l.pages || "{}");
+  } catch {
+    pages = {};
+  }
+
+
+  return {
+    title: l.title,
+    pages: {
+      description: pages.description || "",
+      duration: pages.duration || "",
+      objectives: Array.isArray(pages.objectives) ? pages.objectives : [],
+      link: pages.link || "",
+      completed: prevLessons[index]?.pages?.completed ?? false
+    }
+  };
+});
+
+  reapplyLessonCompletion(courseId);
+
+
+      console.log(" Lessons loaded:", course.lessons);
+
+
+    } catch (e) {
+      console.error("Lesson load failed", e);
+    }
+  }
+
+
+  //for pracices
+  async function loadPracticesForCourse(courseId) {
+    try {
+      const res = await fetch(`student_get_practices.php?course_id=${courseId}`);
+
+
+      if (!res.ok) {
+        console.warn("Practices fetch failed:", res.status);
+        currentCourse.practices = [];
+        return;
+      }
+
+
+      const data = await res.json();
+
+
+      if (data.status !== "success" || !Array.isArray(data.practices)) {
+        console.warn("Invalid practices response:", data);
+        currentCourse.practices = [];
+        return;
+      }
+
+
+currentCourse.practices = data.practices.map(p => ({
+  id: p.id,
+  title: p.title || "Untitled Practice",
+  duration: p.duration || "",
+  link: p.link || "",
+  completed: false,
+  score: null
+}));
+
+
+// RESTORE SAVED COMPLETION
+reapplyPracticeCompletion(courseId);
+
+
+
+
+    } catch (err) {
+      console.error("Practices load error:", err);
+      currentCourse.practices = [];
+    }
+  }
+
+
+  function reapplyPracticeCompletion(courseId) {
+  const key = stateKey();
+  if (!key) return;
+
+
+  const raw = localStorage.getItem(key);
+  if (!raw) return;
+
+
+  try {
+    const state = JSON.parse(raw);
+    const saved = state.courses?.find(c => c.id === courseId);
+    const course = courses.find(c => c.id === courseId);
+
+
+    if (!saved || !course || !Array.isArray(course.practices)) return;
+
+
+    saved.practices?.forEach(sp => {
+      const p = course.practices.find(x => x.title === sp.title);
+      if (!p) return;
+      p.completed = !!sp.completed;
+      p.score = sp.score ?? null;
+    });
+  } catch {}
+}
+
+
+
+
+
+
+  async function loadStudentCourses() {
+    try {
+      const res = await fetch("student_list_courses.php");
+      const data = await res.json();
+
+
+      if (data.status === "success") {
+        window.courses = data.courses.map(c => ({
+          id: Number(c.id),
+          name: c.name,
+          subject: c.subject,
+          teacher: c.teacher_name || "TBA",
+          enrolled: false,
+          progress: 0,
+          lessons: []
+        }));
+
+
+        updateAllCourses();
+      }
+    } catch (e) {
+      console.error("Failed to load courses", e);
+    }
+  }
+
+
+
+
+function reapplyLessonCompletion(courseId) {
+  const key = stateKey();
+  if (!key) return;
+
+
+  const raw = localStorage.getItem(key);
+  if (!raw) return;
+
+
+  try {
+    const state = JSON.parse(raw);
+    const saved = state.courses?.find(c => c.id === courseId);
+    const course = courses.find(c => c.id === courseId);
+
+
+    if (!saved || !course || !Array.isArray(course.lessons)) return;
+
+
+    course.lessons.forEach((l, i) => {
+      if (saved.lessons?.[i]) {
+        l.pages.completed = !!saved.lessons[i].completed;
+      }
+    });
+  } catch {}
+}
+
+
+  async function apiJson(url, payload = null) {
+      const opts = payload
+      ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }
+      : {};
+      const res = await fetch(url, opts);
+      return res.json();
+  }
+
+
+// for quiz
+async function loadQuizForCourse(courseId) {
+  const res = await fetch(`student_get_quiz.php?course_id=${courseId}`);
+  const data = await res.json();
+
+
+  if (data.status !== "success") {
+    currentCourse.quiz = null;
+    return;
+  }
+
+
+  currentCourse.quiz = {
+    title: data.quiz.title,
+    passing: data.quiz.passing_score,
+    badge: data.quiz.badge_name,
+    questions: data.quiz.questions,
+    completed: false,
+    score: null,
+    passed: false
+  };
+}
+
+
+
+
+function submitQuiz() {
+  if (!currentCourse || !currentCourse.quiz) return;
+
+  const qs = currentCourse.quiz.questions;
+  let correct = 0;
+
+  qs.forEach((q, i) => {
+    const picked = document.querySelector(`input[name="q${i}"]:checked`);
+    if (picked && Number(picked.value) === q.correct) {
+      correct++;
+    }
+  });
+
+  const score = Math.round((correct / qs.length) * 100);
+
+  // SAVE STATE
+  currentCourse.quiz.completed = true;
+  currentCourse.quiz.score = score;
+  currentCourse.quiz.passed = score === 100;
+
+  // AWARD BADGE IMMEDIATELY
+  if (currentCourse.quiz.passed && currentCourse.quiz.badge) {
+    awardBadge(currentCourse.quiz.badge);
+  }
+
+  updateCourseProgress(currentCourse.id);
+  queueSaveUserState();
+  showCourseTab("quiz");         // re-render UI
+}
+
+function awardBadge(badgeName) {
+  const badge = badges.find(b => b.name === badgeName);
+  if (!badge || badge.earned) return;
+
+  badge.earned = true;
+  showBadgeCelebration(badge);
+}
+
+
+// for dashboard
+function updateDashboardStats() {
+  if (!Array.isArray(window.courses)) return;
+
+  //  ENROLLED COURSES
+  const enrolledCourses = window.courses.filter(c => c.enrolled);
+
+  //  AVAILABLE COURSES (NOT ENROLLED)
+  const availableCourses = window.courses.filter(c => !c.enrolled).length;
+
+  //  COURSES THAT ACTUALLY HAVE PROGRESS
+  const gradedCourses = enrolledCourses.filter(
+    c => Number(c.progress) > 0
+  );
+
+  //  AVERAGE GRADE (ONLY FROM STARTED COURSES)
+  let avgGrade = 0;
+
+  if (gradedCourses.length > 0) {
+    const total = gradedCourses.reduce(
+      (sum, c) => sum + Number(c.progress),
+      0
+    );
+    avgGrade = Math.round(total / gradedCourses.length);
+  }
+
+  //  UPDATE UI
+  const availableEl = document.getElementById("availableCourses");
+  const enrolledEl = document.getElementById("enrolledCount");
+  const avgEl = document.getElementById("averageGrade");
+
+  if (availableEl) availableEl.textContent = availableCourses;
+  if (enrolledEl) enrolledEl.textContent = enrolledCourses.length;
+  if (avgEl) avgEl.textContent = avgGrade + "%";
+}
+
+
+
+
+
+
+function updateQuizTabVisibility() {
+  const btn = document.getElementById("quizTabBtn");
+  if (!btn) return;
+
+
+  if (currentCourse && currentCourse.quiz) {
+    btn.classList.remove("hidden");
+  } else {
+    btn.classList.add("hidden");
+  }
+}
+
+
+function retryQuiz() {
+  if (!currentCourse || !currentCourse.quiz) return;
+
+
+  // reset quiz state
+  currentCourse.quiz.completed = false;
+  currentCourse.quiz.score = null;
+  currentCourse.quiz.passed = false;
+
+
+  // clear selected answers
+  currentCourse.quiz.questions.forEach((_, i) => {
+    const inputs = document.querySelectorAll(`input[name="q${i}"]`);
+    inputs.forEach(r => r.checked = false);
+  });
+
+
+  showSuccessToast(" Quiz reset. Try again!");
+  showCourseTab("quiz");
+}
+ //for example
+  async function loadExamplesForCourse(courseId) {
+  const res = await fetch(`student_get_examples.php?course_id=${courseId}`);
+  const data = await res.json();
+
+
+  if (data.status !== "success") {
+    currentCourse.examples = [];
+    return;
+  }
+
+
+  currentCourse.examples = data.examples;
+}
+
+  // PER-USER SAVE / LOAD
+  let saveTimer = null;
+
+  function stateKey() {
+    const auth = getAuth();
+    if (!auth || !auth.id) return null;
+    return "clasmeyt_state_v1_" + auth.id;
+  }
+
+
+
+
+  function buildUserState() {
+    return {
+      version: 1,
+      courses: courses.map(c => ({
+        id: c.id,
+        enrolled: !!c.enrolled,
+        progress: Number(c.progress) || 0,
+
+
+
+
+  lessons: Array.isArray(c.lessons)
+    ? c.lessons.map(l => ({ completed: !!l.pages?.completed }))
+    : null,
+
+
+
+
+
+
+        practices: Array.isArray(c.practices)
+          ? c.practices.map(p => ({
+              title: p.title,
+              completed: !!p.completed,
+              score: p.score ?? null
+            }))
+          : null,
+
+
+
+
+quiz: c.quiz
+  ? {
+      completed: !!c.quiz.completed,
+      score: c.quiz.score ?? null,
+      passed: !!c.quiz.passed
+    }
+  : null
+      })),
+
+
+      badges: badges.map(b => ({
+        name: b.name,
+        earned: !!b.earned
+      }))
+    };
+  }
+
+
+
+  function applyUserState(state) {
+    if (!state) return;
+
+
+
+
+    // restore courses
+    if (Array.isArray(state.courses)) {
+      state.courses.forEach(saved => {
+        const c = courses.find(x => x.id === saved.id);
+        if (!c) return;
+
+
+
+
+        c.enrolled = !!saved.enrolled;
+        c.progress = Number(saved.progress) || 0;
+
+
+
+
+        // lessons
+        if (Array.isArray(c.lessons) && Array.isArray(saved.lessons)) {
+          for (let i = 0; i < Math.min(c.lessons.length, saved.lessons.length); i++) {
+            c.lessons[i].pages.completed = !!saved.lessons[i].completed;
+          }
         }
 
 
-        // Course detail view
-        function viewCourse(courseId) {
-            currentCourse = courses.find(c => c.id === courseId);
-            if (currentCourse) {
-                showCourseDetail();
-            }
+
+
+        // practices
+        if (Array.isArray(c.practices) && Array.isArray(saved.practices)) {
+          saved.practices.forEach(sp => {
+            const p = c.practices.find(x => x.title === sp.title);
+            if (!p) return;
+            p.completed = !!sp.completed;
+            p.score = sp.score ?? null;
+          });
         }
 
 
-        function showCourseDetail() {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.add('hidden');
-            });
-           
-            // Show course detail
-            document.getElementById('course-detail').classList.remove('hidden');
-           
-            // Update course header
-            const header = document.getElementById('courseHeader');
-            header.innerHTML = `
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-800">${currentCourse.name}</h2>
-                        <p class="text-gray-600 text-lg"> ${currentCourse.teacher} •  ${currentCourse.subject}</p>
-                    </div>
-                    ${currentCourse.enrolled ?
-                        `<div class="text-right">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Enrolled</span>
-                            <div class="mt-2">
-                                <div class="text-sm text-gray-600">Progress: ${currentCourse.progress}%</div>
-                                <div class="w-32 bg-gray-200 rounded-full h-2 mt-1">
-                                    <div class="bg-blue-500 h-2 rounded-full" style="width: ${currentCourse.progress}%"></div>
-                                </div>
-                            </div>
-                        </div>` :
-                        `<button onclick="enrollCourse(${currentCourse.id})" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                            Enroll Now
-                        </button>`
-                    }
+
+
+        // quiz
+if (c.quiz && saved.quiz) {
+  c.quiz.completed = !!saved.quiz.completed;
+  c.quiz.score = saved.quiz.score ?? null;
+  c.quiz.passed = !!saved.quiz.passed;
+}
+
+      });
+    }
+
+
+
+
+    // restore badges
+    if (Array.isArray(state.badges)) {
+      state.badges.forEach(sb => {
+        const b = badges.find(x => x.name === sb.name);
+        if (b) b.earned = !!sb.earned;
+      });
+    }
+  }
+
+
+
+
+  function saveUserStateLocal() {
+    const key = stateKey();
+    if (!key) return;
+
+
+
+
+    try {
+      const state = buildUserState();
+      localStorage.setItem(key, JSON.stringify(state));
+    } catch (e) {
+      console.warn("saveUserStateLocal failed", e);
+    }
+  }
+
+
+
+
+  function loadUserStateLocal() {
+    const key = stateKey();
+    if (!key) return;
+
+
+
+
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      applyUserState(JSON.parse(raw));
+    } catch (e) {
+      console.warn("loadUserStateLocal failed", e);
+    }
+  }
+
+
+
+
+  function queueSaveUserState() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveUserStateLocal, 300);
+  }
+
+
+
+
+  // auto-save when closing / refreshing
+  window.addEventListener("beforeunload", () => {
+    saveUserStateLocal();
+  });
+
+
+
+
+
+
+
+
+  // Navigation functions
+  function showSection(sectionId, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+
+  document.getElementById(sectionId).classList.remove('hidden');
+  if (el) el.classList.add('active');
+
+  if (sectionId === 'courses') updateAllCourses();
+  else if (sectionId === 'my-courses') updateEnrolledCourses();
+  else if (sectionId === 'teachers') updateTeachers();
+  else if (sectionId === 'account') updateAccountInfo();
+  }
+
+
+
+//for switch icon
+function resourceIcon(type) {
+  if (type === "pdf") return "images/pdf.png";
+  if (type === "video") return "images/video.png";
+  return "images/file.png";
+}
+
+
+
+
+
+
+
+
+async function viewCourse(courseId) {
+  const course = courses.find(c => c.id === Number(courseId));
+  if (!course) return;
+
+  currentCourse = course;
+  currentTab = "lessons";
+
+  await loadCourseOverview(courseId);   
+  await loadLessonsForCourse(courseId);
+  await loadPracticesForCourse(courseId);
+  await loadQuizForCourse(courseId);
+  await loadExamplesForCourse(courseId);
+  await loadResourcesForCourse(courseId);
+
+  updateQuizTabVisibility();
+  showCourseDetail();
+  showCourseTab("lessons");
+}
+
+
+
+
+
+
+
+
+
+
+
+  function showCourseDetail() {
+      document.querySelectorAll('.section').forEach(section => {
+      section.classList.add('hidden');
+      });
+   
+      document.getElementById('course-detail').classList.remove('hidden');
+   
+      const header = document.getElementById('courseHeader');
+      header.innerHTML = `
+          <div class="flex justify-between items-start mb-4">
+              <div>
+                  <h2 class="text-3xl font-bold text-gray-800">${currentCourse.name}</h2>
+                  <p class="text-gray-600 text-lg flex items-center gap-3 flex-wrap">
+                  <span class="flex items-center gap-2">
+                  <img src="images/teacher.png" class="w-5 h-5 object-contain" alt="Teacher">
+                  ${currentCourse.teacher}
+                  </span>
+                  <span class="text-gray-400">•</span>
+                  <span class="flex items-center gap-2">
+                  <img src="images/books.png" class="w-5 h-5 object-contain" alt="Subject">
+                  ${currentCourse.subject}
+                  </span>
+                  </p>
+                  </div>
+              ${currentCourse.enrolled ?
+                  `<div class="text-right">
+                      <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Enrolled</span>
+                      <div class="mt-2">
+                          <div class="text-sm text-gray-600">Progress: ${currentCourse.progress}%</div>
+                          <div class="w-32 bg-gray-200 rounded-full h-2 mt-1">
+                              <div class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: ${currentCourse.progress}%"></div>
+                          </div>
+                      </div>
+                  </div>` :
+                  `<button onclick="enrollCourse(${currentCourse.id})" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                      Enroll Now
+                  </button>`
+              }
+          </div>
+          <p class="text-gray-700">${currentCourse.overview}</p>
+      `;
+   
+      showCourseTab(currentTab ||'lessons');
+  }
+
+
+
+
+
+
+
+
+  function showCourseTab(tabName, clickedBtn = null) {
+  currentTab = tabName;
+
+
+
+
+  const tabs = document.querySelectorAll('.course-tab');
+      tabs.forEach(tab => {
+      tab.classList.remove('tab-active', 'border-blue-500', 'text-blue-600');
+      tab.classList.add('border-transparent', 'text-gray-500');
+      });
+
+
+
+
+      let activeBtn = clickedBtn;
+
+
+
+
+
+
+
+
+      if (!activeBtn) {
+      // 1) find by data-tab (if you add it later)
+      activeBtn = document.querySelector(`.course-tab[data-tab="${tabName}"]`);
+
+
+
+
+      // 2) fallback: try to match by button text
+      if (!activeBtn) {
+          activeBtn = Array.from(tabs).find(b => {
+          const t = (b.textContent || '').trim().toLowerCase();
+          return t.includes(tabName.toLowerCase());
+          }) || null;
+      }
+      }
+
+
+
+
+    // Apply active styling if we found a button
+      if (activeBtn) {
+      activeBtn.classList.add('tab-active', 'border-blue-500', 'text-blue-600');
+      activeBtn.classList.remove('border-transparent', 'text-gray-500');
+      }
+
+
+
+
+    //  Update tab content
+      const content = document.getElementById('courseTabContent');
+      if (!content || !currentCourse) return;
+
+
+
+
+      switch (tabName) {
+      case 'lessons':
+          content.innerHTML = `
+          <div class="space-y-6">
+              <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-bold text-blue-800 mb-2">Course Lessons</h4>
+              <p class="text-blue-700 text-sm">Study the course material and track your learning progress.</p>
+              </div>
+              ${currentCourse.lessons ? currentCourse.lessons.map((lesson, index) => `
+              <div class="border border-gray-200 rounded-lg p-6 ${lesson.pages.completed
+              ? 'bg-green-50 border-green-200' : 'bg-white'}">
+                  <div class="flex justify-between items-start mb-4">
+                  <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center ${lesson.pages.completed
+  ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-600'}">
+                      ${lesson.pages.completed
+                      ? '✓' : index + 1}
+                      </div>
+                      <div>
+                      <h5 class="font-bold text-lg text-gray-800">${lesson.title}</h5>
+                      <p class="text-sm text-gray-600 flex items-center gap-2">
+                      <img src="images/clock.png" class="w-4 h-4">
+                      ${lesson.pages.duration}
+                      </p>
+                      </div>
+                  </div>
+                  ${lesson.pages.completed
+
+
+                  ? '<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Completed</span>'
+                  : '<span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">In Progress</span>'
+                  }
+                  </div>
+                  <p class="text-gray-700 mb-4">${lesson.pages.description}</p>
+                  <div class="mb-4">
+                  <h6 class="font-medium text-gray-800 mb-2">Learning Objectives:</h6>
+                  <ul class="space-y-1">
+                      ${lesson.pages.objectives.map(obj => `
+                      <li class="flex items-center space-x-2 text-sm text-gray-600">
+                      <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                      <span>${obj}</span>
+                      </li>
+                      `).join('')}
+                  </ul>
+                  </div>
+                  <div class="flex items-center gap-4 mt-4">
+                  <p
+                  class="text-sm text-blue-600 font-medium cursor-pointer hover:underline"
+                  onclick="openLessonLink(${index})">
+                  📎 Open lesson material
+                  </p>
+
+
+
+
+      ${
+      lesson.pages.completed
+      ? `<span class="text-sm text-green-600 font-semibold"> Completed</span>`
+      : `<button
+      onclick="markLessonCompleted(${index})"
+      class="text-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg">
+          Mark as Completed
+          </button>`
+      }
+  </div>
+
+
+
+
+
+
+
+
+              </div>
+              `).join('') : '<p class="text-gray-500">No lessons available yet.</p>'}
+          </div>
+          `;
+          break;
+
+
+
+
+  case "practices":
+    content.innerHTML = `
+      <div class="space-y-6">
+        <div class="bg-orange-50 p-4 rounded-lg">
+          <h4 class="font-bold text-orange-800 mb-2">Practice Exercises</h4>
+          <p class="text-orange-700 text-sm">
+            Reinforce your learning with hands-on practice problems.
+          </p>
+        </div>
+
+
+        ${
+          currentCourse.practices.length
+            ? currentCourse.practices.map((p, i) => `
+              <div class="border rounded-lg p-6 ${p.completed ? 'bg-green-50' : 'bg-white'}">
+                <div class="flex justify-between mb-3">
+                  <div>
+                    <h5 class="font-bold text-lg">${p.title}</h5>
+                    <p class="text-sm text-gray-600">
+                      ⏱ ${p.duration} min
+                    </p>
+                  </div>
+                  ${
+                    p.completed
+                      ? `<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Completed</span>`
+                      : `<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Available</span>`
+                  }
                 </div>
-                <p class="text-gray-700">${currentCourse.overview}</p>
-            `;
-           
-            // Show default tab
-            showCourseTab('lessons');
+
+
+                <div class="border rounded-lg p-6 ${p.completed ? 'bg-green-50' : 'bg-white'}">
+                  <div class="inline-flex items-center gap-6">
+                    
+                    <!-- LINK -->
+                    <p
+                      class="text-sm text-blue-600 font-medium cursor-pointer hover:underline flex items-center gap-2"
+                      onclick="openPracticeLink(${i})">
+                      📎 Open practice material
+                    </p>
+
+
+                    <!-- STATUS / ACTION -->
+                    ${
+                      p.completed
+                        ? `<span class="flex items-center gap-2 text-green-700 font-semibold">
+                          Completed
+                          </span>`
+                        : `<button
+                            onclick="markPracticeCompleted(${i})"
+                            class="text-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg">
+                            Mark as Completed
+                          </button>`
+                    }
+
+
+                  </div>
+                </div>
+
+
+
+
+
+
+            `).join("")
+            : `<p class="text-gray-500">No practices available yet.</p>`
         }
+      </div>
+    `;
+    break;
 
 
-        function showCourseTab(tabName) {
-            currentTab = tabName;
-           
-            // Update tab buttons
-            document.querySelectorAll('.course-tab').forEach(tab => {
-                tab.classList.remove('tab-active', 'border-blue-500', 'text-blue-600');
-                tab.classList.add('border-transparent', 'text-gray-500');
-            });
-           
-            event.target.classList.add('tab-active', 'border-blue-500', 'text-blue-600');
-            event.target.classList.remove('border-transparent', 'text-gray-500');
-           
-            // Update tab content course part tab
-            const content = document.getElementById('courseTabContent');
-           
-            switch(tabName) {
-                case 'lessons':
-                    content.innerHTML = `
-                        <div class="space-y-6">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-blue-800 mb-2">Course Lessons</h4>
-                                <p class="text-blue-700 text-sm">Study the course material and track your learning progress.</p>
-                            </div>
-                            ${currentCourse.lessons ? currentCourse.lessons.map((lesson, index) => `
-                                <div class="border border-gray-200 rounded-lg p-6 ${lesson.completed ? 'bg-green-50 border-green-200' : 'bg-white'}">
-                                    <div class="flex justify-between items-start mb-4">
-                                        <div class="flex items-center space-x-3">
-                                            <div class="w-8 h-8 rounded-full flex items-center justify-center ${lesson.completed ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-600'}">
-                                                ${lesson.completed ? '✓' : index + 1}
-                                            </div>
-                                            <div>
-                                                <h5 class="font-bold text-lg text-gray-800">${lesson.title}</h5>
-                                                <p class="text-sm text-gray-600">⏱️ ${lesson.duration}</p>
-                                            </div>
-                                        </div>
-                                        ${lesson.completed ?
-                                            '<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Completed</span>' :
-                                            '<span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">In Progress</span>'
-                                        }
-                                    </div>
-                                    <p class="text-gray-700 mb-4">${lesson.content}</p>
-                                    <div class="mb-4">
-                                        <h6 class="font-medium text-gray-800 mb-2">Learning Objectives:</h6>
-                                        <ul class="space-y-1">
-                                            ${lesson.objectives.map(obj => `
-                                                <li class="flex items-center space-x-2 text-sm text-gray-600">
-                                                    <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
-                                                    <span>${obj}</span>
-                                                </li>
-                                            `).join('')}
-                                        </ul>
-                                    </div>
-                                    <button onclick="startLesson('${lesson.title}')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                                        ${lesson.completed ? 'Review Lesson' : 'Start Lesson'}
-                                    </button>
-                                </div>
-                            `).join('') : '<p class="text-gray-500">No lessons available yet.</p>'}
-                        </div>
-                    `;
-                    break;
-                    
-                case 'practices':
-                    content.innerHTML = `
-                        <div class="space-y-6">
-                            <div class="bg-orange-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-orange-800 mb-2">Practice Exercises</h4>
-                                <p class="text-orange-700 text-sm">Reinforce your learning with hands-on practice problems and activities.</p>
-                            </div>
-                            ${currentCourse.practices ? currentCourse.practices.map(practice => `
-                                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                                    <div class="flex justify-between items-start mb-4">
-                                        <div>
-                                            <h5 class="font-bold text-lg text-gray-800 mb-2">${practice.title}</h5>
-                                            <div class="flex items-center space-x-4 text-sm text-gray-600">
-                                                <span>📝 ${practice.problems} problems</span>
-                                                <span>⏱️ ${practice.timeLimit}</span>
-                                                <span class="px-2 py-1 rounded-full text-xs font-medium ${
-                                                    practice.difficulty === 'Beginner' ? 'bg-green-100 text-green-800' :
-                                                    practice.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                                                    'bg-red-100 text-red-800'
-                                                }">${practice.difficulty}</span>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            ${practice.completed ?
-                                                `<div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Completed</div>
-                                                <div class="text-sm text-gray-600">Score: ${practice.score}%</div>` :
-                                                '<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Available</span>'
-                                            }
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center space-x-2 mb-4">
-                                        <span class="text-sm font-medium text-gray-700">Type:</span>
-                                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">${practice.type}</span>
-                                    </div>
-                                    <button onclick="startPractice('${practice.title}')" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                                        ${practice.completed ? 'Retry Practice' : 'Start Practice'}
-                                    </button>
-                                </div>
-                            `).join('') : '<p class="text-gray-500">No practice exercises available yet.</p>'}
-                        </div>
-                    `;
-                    break;
-                    
+
+
+              
                 case 'quiz':
-                    content.innerHTML = `
-                        <div class="space-y-6">
-                            <div class="bg-yellow-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-yellow-800 mb-2">${currentCourse.quiz ? currentCourse.quiz.title : 'Course Quiz'}</h4>
-                                <p class="text-yellow-700 text-sm">Test your knowledge with these practice questions.</p>
-                            </div>
-                            ${currentCourse.quiz ? currentCourse.quiz.questions.map((q, index) => `
-                                <div class="border border-gray-200 rounded-lg p-4">
-                                    <h5 class="font-medium text-gray-800 mb-3">Question ${index + 1}: ${q.question}</h5>
-                                    <div class="space-y-2">
-                                        ${q.options.map((option, optIndex) => `
-                                            <label class="flex items-center space-x-2 cursor-pointer">
-                                                <input type="radio" name="q${index}" value="${optIndex}" class="text-blue-500">
-                                                <span class="text-gray-700">${option}</span>
-                                            </label>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                            `).join('') : '<p class="text-gray-500">No quiz available yet.</p>'}
-                            ${currentCourse.quiz ? `
-                                <button onclick="submitQuiz()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                                    Submit Quiz
-                                </button>
-                            ` : ''}
-                        </div>
-                    `;
-                    break;
-                    
-                case 'examples':
-                    content.innerHTML = `
-                        <div class="space-y-6">
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-purple-800 mb-2">Course Examples</h4>
-                                <p class="text-purple-700 text-sm">Practical examples and demonstrations to reinforce learning.</p>
-                            </div>
-                            ${currentCourse.examples ? currentCourse.examples.map(example => `
-                                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                                    <h5 class="font-bold text-lg text-gray-800 mb-2">${example.title}</h5>
-                                    <p class="text-gray-600 mb-4">${example.description}</p>
-                                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-                                        View Example
-                                    </button>
-                                </div>
-                            `).join('') : '<p class="text-gray-500">No examples available yet.</p>'}
-                        </div>
-                    `;
-                    break;
-                    
-                case 'resources':
-                    content.innerHTML = `
-                        <div class="space-y-6">
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-green-800 mb-2">Course Resources</h4>
-                                <p class="text-green-700 text-sm">Download materials, references, and additional learning resources.</p>
-                            </div>
-                            ${currentCourse.resources ? currentCourse.resources.map(resource => `
-                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                                            ${resource.type === 'PDF' ? '📄' : resource.type === 'Video' ? '🎥' : resource.type === 'Audio' ? '🎵' : '💾'}
-                                        </div>
-                                        <div>
-                                            <p class="font-medium text-gray-800">${resource.name}</p>
-                                            <p class="text-sm text-gray-500">${resource.type} • ${resource.size}</p>
-                                        </div>
-                                    </div>
-                                    <button onclick="downloadResource('${resource.name}')" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-                                        Download
-                                    </button>
-                                </div>
-                            `).join('') : '<p class="text-gray-500">No resources available yet.</p>'}
-                        </div>
-                    `;
-                    break;
-            }
-        }
+                  content.innerHTML = `
+                    <div class="space-y-6">
 
 
-        // Course overview modal --- also for the  button of the modal
-        function showCourseOverview(courseId) {
-            const course = courses.find(c => c.id === courseId);
-            if (course) {
-                document.getElementById('modalCourseTitle').textContent = course.name;
-                document.getElementById('modalCourseContent').innerHTML = `
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Course Overview</h4>
-                            <p class="text-gray-700 mb-6">${course.overview}</p>
-                            
-                            <h5 class="font-bold text-gray-800 mb-3">Topics Covered:</h5>
-                            <ul class="space-y-2 mb-6">
-                                ${course.topics ? course.topics.map(topic => `
-                                    <li class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                                        <span class="text-gray-700">${topic}</span>
-                                    </li>
-                                `).join('') : '<li class="text-gray-500">Topics to be announced</li>'}
-                            </ul>
-                            
-                            <div class="bg-gray-50 p-4 rounded-lg"
-                                <p class="text-sm text-gray-600"><strong>Instructor:</strong> ${course.teacher}</p>
-                                <p class="text-sm text-gray-600"><strong>Subject:</strong> ${course.subject}</p>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Badge Information</h4>
-                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center mb-6">
-                                <div class="text-4xl mb-3">🏆</div>
-                                <h5 class="font-bold text-yellow-800 mb-2">${course.badge || 'Course Completion Badge'}</h5>
-                                <p class="text-sm text-yellow-700">${course.badgeRequirement || 'Complete all course requirements'}</p>
-                            </div>
-                            
-                            <div class="space-y-4">
-                                ${course.enrolled ?
-                                    `<div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                                        <p class="text-green-800 font-medium">✅ Already Enrolled</p>
-                                        <p class="text-sm text-green-600">Progress: ${course.progress}%</p>
-                                        <button onclick="viewCourse(${course.id}); closeModal('courseOverviewModal')" class="mt-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-medium transition-colors w-full">
-                                            Go to Course
-                                        </button>
-                                    </div>` :
-                                    `<button onclick="enrollCourse(${course.id}); closeModal('courseOverviewModal')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition-colors">
-                                        Enroll in Course
+                      <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-yellow-800 mb-2">
+                          ${currentCourse.quiz?.title || "Course Quiz"}
+                        </h4>
+                        <p class="text-yellow-700 text-sm">
+                          Answer all questions. Passing score: ${currentCourse.quiz?.passing}%.
+                        </p>
+                      </div>
+
+
+                      ${
+                        currentCourse.quiz
+                          ? currentCourse.quiz.questions.map((q, index) => `
+                              <div class="border rounded-lg p-4">
+                                <h5 class="font-medium mb-3">
+                                  Question ${index + 1}: ${q.question}
+                                </h5>
+
+
+                                <div class="space-y-2">
+                                  ${q.options.map((opt, i) => `
+                                    <label class="flex items-center gap-2">
+                                      <input
+                                        type="radio"
+                                        name="q${index}"
+                                        value="${i}"
+                                        ${currentCourse.quiz.completed ? "disabled" : ""}
+                                      />
+                                      <span>${opt}</span>
+                                    </label>
+                                  `).join("")}
+                                </div>
+                              </div>
+                            `).join("")
+                          : `<p class="text-gray-500">No quiz available yet.</p>`
+                      }
+
+
+                      <!-- 🔘 ACTION BUTTONS -->
+                      ${
+                        currentCourse.quiz
+                          ? `
+                            <div class="mt-6 flex gap-4 items-center">
+
+
+                              ${
+                                !currentCourse.quiz.completed
+                                  ? `<button
+                                        onclick="submitQuiz()"
+                                        class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">
+                                        Submit Quiz
                                     </button>`
-                                }
+                                  : !currentCourse.quiz.passed
+                                    ? `<button
+                                          onclick="retryQuiz()"
+                                          class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
+                                          Retry Quiz
+                                      </button>`
+                                    : `<span class="text-green-600 font-semibold">
+                                          Quiz Passed
+                                      </span>`
+                              }
+
+
+                              ${
+                                currentCourse.quiz.completed
+                                  ? `<span class="text-gray-600">
+                                        Score: ${currentCourse.quiz.score}%
+                                    </span>`
+                                  : ``
+                              }
+
+
                             </div>
+                          `
+                          : ``
+                      }
+
+
+                    </div>
+                  `;
+                  break;
+
+
+
+
+                    case "examples":
+                      content.innerHTML = `
+                        <div class="space-y-6">
+                          <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-800 mb-2">Course Examples</h4>
+                            <p class="text-purple-700 text-sm">
+                              Worked examples and demonstrations.
+                            </p>
+                          </div>
+
+
+                          ${
+                            currentCourse.examples.length
+                              ? currentCourse.examples.map(ex => `
+                                <div class="border rounded-lg p-6 bg-white">
+                                  <h5 class="font-bold text-lg mb-1">${ex.title}</h5>
+
+
+                                  <p class="text-gray-600 text-sm mb-4">
+                                    ${ex.description || "No description provided."}
+                                  </p>
+
+
+                                  <button
+                                    onclick="window.open('${ex.link}', '_blank')"
+                                    class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded">
+                                    View Example
+                                  </button>
+                                </div>
+                              `).join("")
+                              : `<p class="text-gray-500">No examples available yet.</p>`
+                          }
                         </div>
-                    </div>
-                `;
-                openModal('courseOverviewModal');
-            }
-        }
+                      `;
+                      break;
 
 
-        // Modal functions
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
+                    
+                    case "resources":
+                      content.innerHTML = `
+                        <div class="space-y-6">
 
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
+                          <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-800 mb-1">
+                              Course Resources
+                            </h4>
+                            <p class="text-green-700 text-sm">
+                              Download materials, references, and additional learning resources.
+                            </p>
+                          </div>
 
 
-        // Form handlers
-        function handleLogin(event) {
-            event.preventDefault();
-            alert('Demo: Login successful! Welcome back to ClasMeyt.');
-            closeModal('loginModal');
-        }
+                          ${
+                            currentCourse.resources && currentCourse.resources.length
+                              ? currentCourse.resources.map(r => `
+                                <div class="flex items-center justify-between p-4 border rounded-lg bg-white">
+                                
+                                  <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                      <img
+                                        src="${
+                                          r.file_type === "PDF"
+                                            ? "images/pdf.png"
+                                            : r.file_type === "Video"
+                                            ? "images/video.png"
+                                            : "images/file.png"
+                                        }"
+                                        class="w-6 h-6"
+                                      />
+                                    </div>
 
 
-        function handleRegister(event) {
-            event.preventDefault();
-            alert('Demo: Account created successfully! Welcome to ClasMeyt.');
-            closeModal('registerModal');
-        }
+                                    <div>
+                                      <p class="font-medium text-gray-800">
+                                        ${r.name}
+                                      </p>
+                                      <p class="text-sm text-gray-500">
+                                        ${r.file_type} • ${r.file_size_kb} KB
+                                      </p>
+                                    </div>
+                                  </div>
 
 
-        function handleContactForm(event) {
-            event.preventDefault();
-            alert('Demo: Message sent successfully! We\'ll get back to you soon.');
-            event.target.reset();
-        }
+                                  <a
+                                    href="${r.file_path}"
+                                    download
+                                    class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-lg font-medium">
+                                    Download
+                                  </a>
 
 
-        function submitQuiz() {
-            alert('Demo: Quiz submitted successfully! Results will be available soon.');
-        }
+                                </div>
+                              `).join("")
+                              : `<p class="text-gray-500">No resources available yet.</p>`
+                          }
 
 
-        function downloadResource(resourceName) {
-            alert(`Demo: Downloading ${resourceName}...`);
-        }
-
-
-        function startLesson(lessonTitle) {
-            alert(`Demo: Starting lesson "${lessonTitle}". This would open the lesson content in a learning interface.`);
-        }
-
-
-        function startPractice(practiceTitle) {
-            alert(`Demo: Starting practice "${practiceTitle}". This would open the practice exercises interface.`);
-        }
-
-
-        // Course enrollment
-        function enrollCourse(courseId) {
-            const course = courses.find(c => c.id === courseId);
-            if (course) {
-                course.enrolled = true;
-                course.progress = 0;
-                updateAllCourses();
-                updateEnrolledCourses();
-                updateStats();
-                updateAccountInfo();
-                alert(`Successfully enrolled in ${course.name}!`);
-            }
-        }
-
-
-        function unenrollCourse(courseId) {
-            const course = courses.find(c => c.id === courseId);
-            if (course) {
-                course.enrolled = false;
-                course.progress = 0;
-                course.badge = null;
-                updateAllCourses();
-                updateEnrolledCourses();
-                updateStats();
-                updateAccountInfo();
-                alert(`Unenrolled from ${course.name}.`);
-            }
-        }
-
-
-        // Update displays for the courses when enrolled ehheheheh
-        function updateAllCourses() {
-            const container = document.getElementById('allCoursesContainer');
-            container.innerHTML = courses.map(course => `
-                <div class="bg-gray-100 border border-gray-100 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="font-bold text-lg text-gray-800 cursor-pointer hover:text-blue-600" onclick="viewCourse(${course.id})">${course.name}</h4>
-                        ${course.enrolled ? '<span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Enrolled</span>' : ''}
-                    </div>
-                    <p class="text-gray-600 mb-2"> ${course.teacher}</p>
-                    <p class="text-gray-600 mb-4"> ${course.subject}</p>
-                    <div class="flex space-x-2 mb-4">
-                        <button onclick="showCourseOverview(${course.id})" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
-                            View Overview
-                        </button>
-                        ${course.enrolled ?  //button ng enroll kpag enroll na
-                            `<button onclick="unenrollCourse(${course.id})" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
-                                Unenroll
-                            </button>` : //button ng enroll
-                            `<button onclick="enrollCourse(${course.id})" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
-                                Enroll
-                            </button>`
-                        }
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        //sa ano toh my courses
-        function updateEnrolledCourses() {
-            const container = document.getElementById('enrolledCoursesContainer');
-            const enrolledCourses = courses.filter(c => c.enrolled);
-            
-            container.innerHTML = enrolledCourses.map(course => `
-                <div class="bg-gray-100 border border-gray-100 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="font-bold text-lg text-gray-800 cursor-pointer hover:text-blue-600" onclick="viewCourse(${course.id})">${course.name}</h4>
-                        ${course.badge ? `<span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">🏆 Badge Earned</span>` : ''}
-                    </div>
-                    <p class="text-gray-600 mb-2"> ${course.teacher}</p>
-                    <p class="text-gray-600 mb-4"> ${course.subject}</p>
-                    <div class="mb-4">
-                        <div class="flex justify-between text-sm text-gray-600 mb-1">
-                            <span>Progress</span>
-                            <span>${course.progress}%</span>
                         </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: ${course.progress}%"></div>
-                        </div>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button onclick="viewCourse(${course.id})" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
-                            Enter Course
-                        </button>
-                        <button onclick="unenrollCourse(${course.id})" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
-                            Unenroll
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-            //teacher container part hehehe
-        function updateTeachers() {
-            const container = document.getElementById('teachersContainer');
-            container.innerHTML = teachers.map(teacher => `
-                <div class="bg-gray-100 border border-gray-100 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <div class="text-center mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
-                            ${teacher.name.split(' ').map(n => n[0]).join('')}
-                        </div>
-                        <h4 class="font-bold text-lg text-gray-800">${teacher.name}</h4>
-                        <p class="text-blue-600 font-medium">${teacher.subject}</p>
-                    </div>
-                    <div class="space-y-2 text-sm">
-                        <p class="text-gray-600"> ${teacher.email}</p>
-                        <p class="text-gray-600"> ${teacher.phone}</p>
-                        <p class="text-gray-600"> ${teacher.experience} experience</p>
-                    </div>
-                    <button class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors">
-                        Contact Teacher
-                    </button>
-                </div>
-            `).join('');
-        }
+                      `;
+                      break;
 
 
-        function updateAccountInfo() {
-            // Update enrolled courses in account
-            const enrolledCourses = courses.filter(c => c.enrolled);
-            const accountCoursesContainer = document.getElementById('accountEnrolledCourses');
-            accountCoursesContainer.innerHTML = enrolledCourses.map(course => `
-                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100" onclick="viewCourse(${course.id})">
-                    <div>
-                        <p class="font-medium text-gray-800">${course.name}</p>
-                        <p class="text-sm text-gray-600">${course.progress}% complete</p>
-                    </div>
-                    ${course.badge ? '<span class="text-yellow-500">🏆</span>' : ''}
-                </div>
-            `).join('');
+              }
+          }
 
 
-            // Update badges in account sa account toohh
-            const accountBadgesContainer = document.getElementById('accountBadges');
-            accountBadgesContainer.innerHTML = badges.map(badge => `
-                <div class="text-center p-3 ${badge.earned ? 'bg-yellow-50 border border-yellow-200' : 'bg-gray-50 border border-gray-200'} rounded-lg">
-                    <div class="text-2xl mb-1">${badge.icon}</div>
-                    <p class="text-xs font-medium text-gray-700">${badge.name}</p>
-                    ${badge.earned ? '<p class="text-xs text-green-600">Earned!</p>' : '<p class="text-xs text-gray-400">Locked</p>'}
-                </div>
-            `).join('');
-        }
+  function openLessonLink(index) {
+    if (!currentCourse) return;
 
 
-        function updateStats() {
-            const enrolledCount = courses.filter(c => c.enrolled).length;
-            const earnedBadges = badges.filter(b => b.earned).length;
-        
-            document.getElementById('enrolledCount').textContent = enrolledCount;
-            document.getElementById('badgeCount').textContent = earnedBadges;
-        }
-
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            updateAllCourses();
-            updateEnrolledCourses();
-            updateTeachers();
-            updateAccountInfo();
-            updateStats();
-        });
-
-
-        // Close modals when clicking outside
-        window.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal-backdrop')) {
-                const modals = ['courseOverviewModal']; // lagay mo dto  yung id ng class mo for the closing trigger
-                modals.forEach(modalId => {
-                    if (!document.getElementById(modalId).classList.contains('hidden')) {
-                        closeModal(modalId);
-                    }
-                });
-            }
-        });
-
-    function openModal(id) {
-    document.getElementById(id).classList.remove("hidden");
-    }
-
-    function closeModal(id) {
-    document.getElementById(id).classList.add("hidden");
+    const lesson = currentCourse.lessons[index];
+    if (!lesson || !lesson.pages?.link) {
+      showSuccessToast(" Lesson link not available");
+      return;
     }
 
 
-(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98065659c46a0663',t:'MTc1ODA4ODM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    window.open(lesson.pages.link, "_blank");
+  }
+
+
+  function openPracticeLink(index) {
+  if (!currentCourse) return;
+
+
+  const practice = currentCourse.practices[index];
+  if (!practice || !practice.link) {
+    showSuccessToast(" Practice link not available");
+    return;
+  }
+
+
+  window.open(practice.link, "_blank");
+}
+
+
+
+
+  function markLessonCompleted(index) {
+    if (!currentCourse) return;
+
+
+
+
+    if (!currentCourse.enrolled) {
+      showSuccessToast("Please enroll in this course first.");
+      return;
+    }
+
+
+
+
+    const lesson = currentCourse.lessons[index];
+    if (!lesson || lesson.pages.completed
+  ) return;
+
+
+
+
+    lesson.pages.completed = true;
+
+
+
+
+    updateCourseProgress(currentCourse.id); // updates % + saves
+    showSuccessToast(`Lesson completed: "${lesson.title}"`);
+  }
+
+
+function openPractices(courseId) {
+  console.log(" openPractices called with:", courseId);
+
+
+  currentCourseId = Number(courseId);
+
+
+  if (!currentCourseId) {
+    alert(" Invalid course ID");
+    return;
+  }
+
+
+  currentTeacherCourse = teacherCourses.find(c => c.id === currentCourseId);
+  if (!currentTeacherCourse) {
+    alert(" Course not found");
+    return;
+  }
+
+
+  hideAllTeacherViews();
+  document
+    .getElementById("teacher-course-practices")
+    .classList.remove("hidden");
+
+
+  document.getElementById("practicesCourseTitle").textContent =
+    `Practices: ${currentTeacherCourse.name}`;
+
+
+  loadPracticesForTeacher(currentCourseId);
+}
+
+
+function markPracticeCompleted(index) {
+  if (!currentCourse) return;
+
+
+  if (!currentCourse.enrolled) {
+    showSuccessToast("Please enroll in this course first.");
+    return;
+  }
+
+
+  const practice = currentCourse.practices[index];
+  if (!practice || practice.completed) return;
+
+
+  practice.completed = true;
+  practice.score = 100;
+
+
+  showSuccessToast(`Practice completed: "${practice.title}"`);
+
+
+  updateCourseProgress(currentCourse.id); // updates % + saves
+}
+
+
+//for resources tab
+async function loadResourcesForCourse(courseId) {
+  try {
+    const res = await fetch(
+      `student_get_resources.php?course_id=${courseId}`
+    );
+    const data = await res.json();
+
+
+    if (data.status !== "success") {
+      currentCourse.resources = [];
+      return;
+    }
+
+
+    currentCourse.resources = data.resources;
+  } catch (e) {
+    console.error("Load resources failed", e);
+    currentCourse.resources = [];
+  }
+}
+
+
+
+
+  // Modal functions
+  function openModal(modalId) {
+  document.getElementById(modalId).classList.remove('hidden');
+  }
+
+
+
+
+
+
+
+
+  function closeModal(modalId) {
+  document.getElementById(modalId).classList.add('hidden');
+  }
+
+
+
+
+
+
+
+
+  // Form handlers
+  function handleLogin(event) {
+  event.preventDefault();
+  showSuccessToast(' Login successful! Welcome back to StudentHub.');
+  closeModal('loginModal');
+  }
+
+
+
+
+  function handleRegister(event) {
+  event.preventDefault();
+  showSuccessToast(' Account created successfully! Welcome to StudentHub.');
+  closeModal('registerModal');
+  }
+
+
+
+
+  function refreshUIAfterCourseChange(courseId) {
+  // update lists / stats
+  updateAllCourses();
+  updateEnrolledCourses();
+  updateAccountInfo();
+  updateStats();
+
+
+
+
+  // if currently inside a course detail page, refresh it too
+  if (currentCourse && currentCourse.id === courseId) {
+  showCourseDetail(); // this also redraws the tabs + progress bar
+  }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  function startPractice(practiceTitle) {
+  if (!currentCourse) return;
+
+
+
+
+  if (!currentCourse.enrolled) {
+  showSuccessToast(" Please enroll in this course first.");
+  return;
+  }
+
+
+
+
+  const practice = currentCourse.practices?.find(p => p.title === practiceTitle);
+  if (!practice) return;
+
+
+
+
+  // Complete or retry
+  const score = Math.floor(Math.random() * (100 - 75 + 1)) + 75;
+
+
+
+
+  if (!practice.completed) {
+  practice.completed = true;
+  practice.score = score;
+  showSuccessToast(`Practice completed: "${practiceTitle}"! Score: ${score}%`);
+  } else {
+  practice.score = score;
+  showSuccessToast(` Practice retried: "${practiceTitle}"! New score: ${score}%`);
+  }
+
+
+
+
+  updateCourseProgress(currentCourse.id); //  updates UI + saves
+  }
+
+
+
+
+  /// Check if course is complete and award badge
+
+
+
+
+
+
+  function showSuccessToast(message) {
+  // Create toast element
+  const toast = document.createElement('div');
+  toast.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50';
+  toast.style.animation = 'slideIn 0.3s ease-out';
+  toast.textContent = message;
+
+
+
+
+  // Add to page
+  document.body.appendChild(toast);
+
+
+
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+  toast.style.animation = 'slideOut 0.3s ease-out';
+  setTimeout(() => {
+  if (document.body.contains(toast)) {
+  document.body.removeChild(toast);
+  }
+  }, 300);
+  }, 3000);
+  }
+
+
+
+
+
+
+
+
+
+
+  function showBadgeCelebration(badge) {
+  document.getElementById('badgeIconLarge').innerHTML = `
+  <img src="${badge.icon}" class="w-24 h-24 mx-auto" />
+  `;
+  document.getElementById('badgeNameDisplay').textContent = badge.name;
+  document.getElementById('badgeDescriptionDisplay').textContent = 'Congratulations on earning this achievement badge!';
+  document.getElementById('badgeCelebrationModal').classList.remove('hidden');
+  }
+
+
+
+
+  function closeBadgeCelebration() {
+  document.getElementById('badgeCelebrationModal').classList.add('hidden');
+  showSuccessToast(`Badge Added: ${document.getElementById('badgeNameDisplay').textContent}!`);
+  }
+
+
+
+
+
+
+  function updateCourseProgress(courseId) {
+  const course = courses.find(c => c.id === courseId);
+  if (!course || !course.enrolled) return;
+
+
+
+
+  let totalItems = 0;
+  let completedItems = 0;
+
+
+
+
+
+
+// lessons
+if (Array.isArray(course.lessons) && course.lessons.length > 0) {
+  totalItems += course.lessons.length;
+  completedItems += course.lessons.filter(
+    l => l.pages && l.pages.completed === true
+  ).length;
+}
+
+
+
+
+
+
+
+
+
+
+  // practices
+  if (Array.isArray(course.practices) && course.practices.length > 0) {
+  totalItems += course.practices.length;
+  completedItems += course.practices.filter(p => p.completed).length;
+  }
+
+
+
+
+  // quiz counts as 1 item
+  if (course.quiz && Array.isArray(course.quiz.questions) && course.quiz.questions.length > 0) {
+  totalItems += 1;
+  if (course.quiz.completed) completedItems += 1;
+  }
+
+
+
+
+  const oldProgress = Number(course.progress) || 0;
+  course.progress = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+
+
+
+
+  // milestone toasts
+  if (oldProgress < 25 && course.progress >= 25) showSuccessToast('25% Complete! Keep it up!');
+  else if (oldProgress < 50 && course.progress >= 50) showSuccessToast(' 50% Complete! Halfway there!');
+  else if (oldProgress < 75 && course.progress >= 75) showSuccessToast(' 75% Complete! Almost done!');
+  else if (oldProgress < 100 && course.progress >= 100) showSuccessToast(' 100% Complete! Course finished!');
+
+
+
+
+  // award badge when 100%
+  if (course.progress === 100 && course.badge) {
+  const badge = badges.find(b => b.name === course.badge);
+  if (badge && !badge.earned) {
+  badge.earned = true;
+  showBadgeCelebration(badge);
+  }
+  }
+
+
+
+
+  // update UI immediately
+  refreshUIAfterCourseChange(courseId);
+
+
+updateDashboardStats();
+
+
+  // save user state
+  queueSaveUserState();
+  }
+
+
+
+
+
+
+
+
+  // Update display functions
+  function updateAllCourses() {
+      const container = document.getElementById('allCoursesContainer');
+      const filtered = getFilteredCoursesList();
+      container.innerHTML = filtered.map(course => `
+      <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div class="flex justify-between items-start mb-3">
+                  <h4 class="font-bold text-lg text-gray-800 cursor-pointer hover:text-blue-600" onclick="viewCourse(${course.id})">${course.name}</h4>
+                  ${course.enrolled ? '<span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Enrolled</span>' : ''}
+              </div>
+              <p class="text-gray-600 mb-2"> ${course.teacher}</p>
+              <p class="text-gray-600 mb-4"> ${course.subject}</p>
+              ${course.enrolled ? `
+                  <div class="mb-4">
+                      <div class="flex justify-between text-sm text-gray-600 mb-1">
+                          <span>Progress</span>
+                          <span>${course.progress}%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2">
+                          <div class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: ${course.progress}%"></div>
+                      </div>
+                  </div>
+              ` : ''}
+              <div class="flex space-x-2 mb-4">
+                  <button onclick="showCourseOverview(${course.id})" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
+                      View Overview
+                  </button>
+                  ${course.enrolled ?
+                      `<button onclick="unenrollCourse(${course.id})" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
+                          Unenroll
+                      </button>` :
+                      `<button onclick="enrollCourse(${course.id})" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
+                          Enroll
+                      </button>`
+                  }
+              </div>
+          </div>
+      `).join('');
+  }
+
+
+
+
+
+  // Search + Filters state
+
+  const courseFilters = {
+  q: "",
+  subject: "all",
+  enroll: "all",
+  sort: "name_asc"
+  };
+
+
+
+
+  function normalizeText(s) {
+  return (s || "").toString().trim().toLowerCase();
+  }
+
+
+
+
+  function getUniqueSubjects() {
+  const set = new Set();
+  courses.forEach(c => {
+  if (c.subject) set.add(c.subject);
+  });
+  return Array.from(set).sort((a, b) => a.localeCompare(b));
+  }
+
+
+
+
+  function populateSubjectFilterOnce() {
+  const select = document.getElementById("courseSubjectFilter");
+  if (!select) return;
+
+
+
+
+  // Prevent duplicates if called multiple times
+  if (select.dataset.ready === "1") return;
+
+
+
+
+  const subjects = getUniqueSubjects();
+  subjects.forEach(sub => {
+  const opt = document.createElement("option");
+  opt.value = sub;
+  opt.textContent = sub;
+  select.appendChild(opt);
+  });
+
+
+
+
+  select.dataset.ready = "1";
+  }
+
+
+
+
+  function getFilteredCoursesList() {
+  let list = [...courses];
+
+
+
+
+  // Search
+  const q = normalizeText(courseFilters.q);
+  if (q) {
+  list = list.filter(c => {
+  const blob = normalizeText(
+  `${c.name} ${c.subject} ${c.teacher}`
+  );
+  return blob.includes(q);
+  });
+  }
+
+
+
+
+  // Subject filter
+  if (courseFilters.subject !== "all") {
+  list = list.filter(c => c.subject === courseFilters.subject);
+  }
+
+
+
+
+  // Enrollment filter
+  if (courseFilters.enroll === "enrolled") {
+  list = list.filter(c => !!c.enrolled);
+  } else if (courseFilters.enroll === "not_enrolled") {
+  list = list.filter(c => !c.enrolled);
+  }
+
+
+
+
+  // Sorting
+  switch (courseFilters.sort) {
+  case "name_desc":
+  list.sort((a, b) => (b.name || "").localeCompare(a.name || ""));
+  break;
+  case "progress_desc":
+  list.sort((a, b) => (Number(b.progress) || 0) - (Number(a.progress) || 0));
+  break;
+  case "progress_asc":
+  list.sort((a, b) => (Number(a.progress) || 0) - (Number(b.progress) || 0));
+  break;
+  case "name_asc":
+  default:
+  list.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+  break;
+  }
+
+
+
+
+  return list;
+  }
+
+
+
+
+  function initCourseSearchFilters() {
+  populateSubjectFilterOnce();
+
+
+
+
+  const searchEl = document.getElementById("courseSearch");
+  const subjectEl = document.getElementById("courseSubjectFilter");
+  const enrollEl = document.getElementById("courseEnrollFilter");
+  const sortEl = document.getElementById("courseSort");
+
+
+
+
+  if (searchEl) {
+  searchEl.addEventListener("input", () => {
+  courseFilters.q = searchEl.value;
+  updateAllCourses(); // re-render instantly
+  });
+  }
+
+
+
+
+  if (subjectEl) {
+  subjectEl.addEventListener("change", () => {
+  courseFilters.subject = subjectEl.value;
+  updateAllCourses();
+  });
+  }
+
+
+
+
+  if (enrollEl) {
+  enrollEl.addEventListener("change", () => {
+  courseFilters.enroll = enrollEl.value;
+  updateAllCourses();
+  });
+  }
+
+
+
+
+  if (sortEl) {
+  sortEl.addEventListener("change", () => {
+  courseFilters.sort = sortEl.value;
+  updateAllCourses();
+  });
+  }
+  }
+
+
+
+
+  //sa ano toh my courses
+      function updateEnrolledCourses() {
+      const container = document.getElementById('enrolledCoursesContainer');
+      const enrolledCourses = courses.filter(c => c.enrolled);
+      
+      if (enrolledCourses.length === 0) {
+          container.innerHTML = '<p class="text-gray-500 text-center col-span-3">No enrolled courses yet. Browse available courses to get started!</p>';
+          return;
+      }
+      
+      container.innerHTML = enrolledCourses.map(course => `
+          <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div class="flex justify-between items-start mb-3">
+                  <h4 class="font-bold text-lg text-gray-800 cursor-pointer hover:text-blue-600" onclick="viewCourse(${course.id})">${course.name}</h4>
+                  ${course.badge && badges.find(b => b.name === course.badge && b.earned)
+                  ? `
+                  <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium inline-flex items-center gap-1">
+                  <img src="images/trophy.png" alt="Trophy" class="w-4 h-4 object-contain">
+                  Badge Earned
+                  </span>
+                  `
+                  : ''
+  }
+              </div>
+              <p class="text-gray-600 mb-2"> ${course.teacher}</p>
+              <p class="text-gray-600 mb-4"> ${course.subject}</p>
+              <div class="mb-4">
+                  <div class="flex justify-between text-sm text-gray-600 mb-1">
+                      <span>Progress</span>
+                      <span>${course.progress}%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: ${course.progress}%"></div>
+                  </div>
+              </div>
+              <div class="flex space-x-2">
+                  <button onclick="viewCourse(${course.id})" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
+                      Continue Learning
+                  </button>
+                  <button onclick="unenrollCourse(${course.id})" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors text-sm">
+                      Unenroll
+                  </button>
+              </div>
+          </div>
+      `).join('');
+  }
+
+
+
+  //for teacher tab
+function updateTeachers() {
+  fetch("student_get_teachers.php")
+    .then(res => res.json())
+    .then(data => {
+      if (data.status !== "success") {
+        document.getElementById("teachersContainer").innerHTML =
+          "<p class='text-red-500'>Failed to load teachers.</p>";
+        return;
+      }
+
+      const container = document.getElementById("teachersContainer");
+
+      container.innerHTML = data.teachers.map(t => `
+        <div class="bg-gray-100 rounded-lg p-6 text-center">
+          <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
+            ${t.fullname.split(" ").map(n => n[0]).join("")}
+          </div>
+
+          <h4 class="font-bold text-lg">${t.fullname}</h4>
+
+          <p class="text-blue-600 text-sm font-medium">
+            ${t.subjects ?? "No subject assigned"}
+          </p>
+
+          <p class="text-gray-600 text-sm mt-1">${t.email}</p>
+        </div>
+      `).join("");
+    })
+    .catch(() => {
+      document.getElementById("teachersContainer").innerHTML =
+        "<p class='text-red-500'>Failed to load teachers.</p>";
+    });
+}
+
+
+
+
+
+
+
+
+
+// for logout button
+  function logout() {
+  localStorage.removeItem("clasmeyt_auth");
+  window.location.href = "Welcome.html";
+  }
+
+//for showcourse overview button
+async function showCourseOverview(courseId) {
+  try {
+    const res = await fetch(
+      `student_get_course_overview.php?course_id=${courseId}`
+    );
+    const data = await res.json();
+
+    if (data.status !== "success") {
+      alert("No course overview available yet.");
+      return;
+    }
+
+    const o = data.overview;
+
+    //  get course enrollment state
+    const course = courses.find(c => Number(c.id) === Number(courseId));
+    const isEnrolled = course ? !!course.enrolled : false;
+
+    //  badge resolution
+    const badgeName = o.badge_name;
+    const badgeInfo =
+      badges.find(b => b.name === badgeName) || {
+        name: badgeName || "Course Badge",
+        icon: "badges/default.png",
+        description: "Complete this course to earn this badge."
+      };
+
+    //  ENROLL / UNENROLL BUTTON
+    const enrollButtonHtml = isEnrolled
+      ? `
+        <button
+          onclick="unenrollCourse(${courseId})"
+          class="w-full mt-6 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-semibold">
+          Unenroll from Course
+        </button>
+      `
+      : `
+        <button
+          onclick="enrollCourse(${courseId})"
+          class="w-full mt-6 bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold">
+          Enroll in Course
+        </button>
+      `;
+
+    document.getElementById("modalCourseContent").innerHTML = `
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- LEFT COLUMN -->
+        <div>
+          <p class="text-gray-700 mb-4">
+            ${o.description || "No description available."}
+          </p>
+
+          <h4 class="font-semibold mb-2">Topics Covered:</h4>
+          <ul class="space-y-2">
+            ${(o.topics || []).map(t => `
+              <li class="flex items-center gap-2 text-gray-700">
+                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                ${t}
+              </li>
+            `).join("")}
+          </ul>
+
+          <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-700">
+              <strong>Instructor:</strong> ${o.teacher_name || "TBA"}
+            </p>
+            <p class="text-sm text-gray-700">
+              <strong>Subject:</strong> ${o.subject || "—"}
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+          <h3 class="text-xl font-bold mb-3">Badge Information</h3>
+
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
+            <img
+              src="${badgeInfo.icon}"
+              class="w-20 h-20 mx-auto mb-3"
+              alt="Badge"
+            />
+            <h4 class="font-bold text-lg text-yellow-800">
+              ${badgeInfo.name}
+            </h4>
+            <p class="text-sm text-yellow-700 mt-2">
+              ${badgeInfo.description}
+            </p>
+          </div>
+
+          ${enrollButtonHtml}
+        </div>
+
+      </div>
+    `;
+
+    currentCourse = course || null;
+    openModal("courseOverviewModal");
+
+  } catch (e) {
+    console.error("Overview load failed", e);
+    alert("Failed to load course overview.");
+  }
+}
+
+
+
+
+
+
+
+  function updateAccountInfo() {
+      // Update enrolled courses in account
+      const enrolledCourses = courses.filter(c => c.enrolled);
+      const accountCoursesContainer = document.getElementById('accountEnrolledCourses');
+   
+      if (enrolledCourses.length === 0) {
+          accountCoursesContainer.innerHTML = '<p class="text-gray-500 text-sm">No enrolled courses yet.</p>';
+      } else {
+          accountCoursesContainer.innerHTML = enrolledCourses.map(course => `
+              <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100" onclick="viewCourse(${course.id})">
+                  <div>
+                      <p class="font-medium text-gray-800">${course.name}</p>
+                      <p class="text-sm text-gray-600">${course.progress}% complete</p>
+                  </div>
+                  ${course.badge && badges.find(b => b.name === course.badge && b.earned)
+                  ? `<img src="images/trophy.png" alt="Trophy" class="w-5 h-5 object-contain">`
+                  : ''
+  }
+              </div>
+          `).join('');
+      }
+
+
+
+
+      // Update badges in account
+      const accountBadgesContainer = document.getElementById('accountBadges');
+      accountBadgesContainer.innerHTML = badges.map(badge => `
+          <div class="text-center p-3 ${badge.earned ? 'bg-yellow-50 border border-yellow-200' : 'bg-gray-50 border border-gray-200'} rounded-lg">
+              <img
+          src="${badge.icon}"
+          alt="${badge.name}"
+          class="w-10 h-10 mx-auto mb-1 ${badge.earned ? '' : 'opacity-30'}"
+          />
+
+
+
+
+              <p class="text-xs font-medium text-gray-700">${badge.name}</p>
+              ${badge.earned ? '<p class="text-xs text-green-600"> Earned!</p>' : '<div class="flex items-center justify-center space-x-1"><img src="images/padlock.png" alt="Locked badge" class="w-4 h-4"/><span class="text-xs text-gray-400">Locked</span></div>'}
+          </div>
+      `).join('');
+  }
+
+
+
+
+function updateStats() {
+  const earnedBadges = badges.filter(b => b.earned).length;
+  const badgeEl = document.getElementById('badgeCount');
+  if (badgeEl) badgeEl.textContent = earnedBadges;
+}
+
+
+
+
+
+  // Initialize the page
+document.addEventListener("DOMContentLoaded", async () => {
+  requireRole(["student"]);
+
+
+  await loadStudentCourses();
+  loadUserStateLocal();
+  initCourseSearchFilters();
+  updateDashboardStats();
+
+  populateProfileFromAuth();   // name, email, id
+  await loadProfileMeta();     // grade + joined date + photo
+
+  updateAllCourses();
+  updateEnrolledCourses();
+  updateTeachers();
+  updateAccountInfo();
+  updateStats();
+});
+
+
+
+
+
+
+          // Close modals when clicking outside
+          window.addEventListener('click', function(event) {
+              if (event.target.classList.contains('modal-backdrop')) {
+                  const modals = ['courseOverviewModal']; // lagay mo dto  yung id ng class mo for the closing trigger
+                  modals.forEach(modalId => {
+                      if (!document.getElementById(modalId).classList.contains('hidden')) {
+                          closeModal(modalId);
+                      }
+                  });
+              }
+          });
+
+
+
+
+  function openModal(id) {
+  document.getElementById(id).classList.remove("hidden");
+  }
+
+
+
+
+  function closeModal(id) {
+  document.getElementById(id).classList.add("hidden");
+  }
+  function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
+  }
+
+
+
+
+  function makeInitials(fullname, fallback) {
+  const name = (fullname || "").trim();
+  if (!name) return (fallback || "").slice(0, 2).toUpperCase();
+
+
+
+
+  const parts = name.split(/\s+/).filter(Boolean);
+
+
+
+
+  // Belinda Laurora => BL (first + last)
+  if (parts.length >= 2) {
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+  }
+
+
+
+
+
+
+  function populateProfileFromAuth() {
+    const auth = getAuth();
+    if (!auth) return;
+
+
+
+
+    setText("profileName", auth.fullname || "Student");
+    setText("profileStudentId", auth.id || "—");
+    setText("profileEmail", auth.email || "—");
+
+
+
+
+    setText("profileInitials", makeInitials(auth.fullname, auth.id));
+  }
+
+
+
+
+
+
+
+
+
+
+  // ---- Photo picker ----
+  function openPhotoPicker() {
+  const input = document.getElementById("profilePhotoInput");
+  if (input) input.click();
+  }
+
+
+
+
+
+
+  function formatJoined(dateStr) {
+  if (!dateStr) return "—";
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "—";
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+  }
+
+
+
+
+  // ---- Load joined date + photo from DB (via PHP session) ----
+async function loadProfileMeta() {
+  try {
+    const auth = localStorage.getItem("clasmeyt_auth");
+    if (!auth) return;
+
+
+    const res = await fetch("get_profile_meta.php", {
+      headers: { "X-Auth": auth }
+    });
+
+
+    const data = await res.json();
+    if (data.status !== "success") return;
+
+    // GRADE LEVEL
+    const gradeEl = document.getElementById("profileGrade");
+    if (gradeEl && data.grade_level) {
+      gradeEl.textContent = data.grade_level;
+    }
+
+
+    // PROFILE PHOTO
+    const img = document.getElementById("profilePhotoImg");
+    const initials = document.getElementById("profileInitials");
+
+
+    if (data.profile_photo) {
+      img.src = data.profile_photo + "?t=" + Date.now();
+      img.classList.remove("hidden");
+      initials.classList.add("hidden");
+    } else {
+      img.classList.add("hidden");
+      initials.classList.remove("hidden");
+    }
+
+
+  } catch (e) {
+    console.warn("loadProfileMeta failed", e);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+  // ---- Upload photo ----
+function initProfilePhotoUpload() {
+  const input = document.getElementById("profilePhotoInput");
+  if (!input) return;
+
+
+  input.addEventListener("change", async () => {
+    const file = input.files?.[0];
+    if (!file) return;
+
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image");
+      return;
+    }
+
+
+    const auth = localStorage.getItem("clasmeyt_auth");
+    if (!auth) {
+      alert("Not logged in");
+      return;
+    }
+
+
+    const fd = new FormData();
+    fd.append("photo", file);
+
+
+    try {
+      const r = await fetch("upload_profile_photo.php", {
+        method: "POST",
+        headers: {
+          "X-Auth": auth
+        },
+        body: fd
+      });
+
+
+      const data = await r.json();
+
+
+      if (data.status === "success") {
+        const img = document.getElementById("profilePhotoImg");
+        const initials = document.getElementById("profileInitials");
+
+
+        img.src = data.photo_url + "?t=" + Date.now();
+        img.classList.remove("hidden");
+        initials.classList.add("hidden");
+
+
+        alert("Profile photo updated");
+      } else {
+        alert(data.message || "Upload failed");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Upload error");
+    }
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", initProfilePhotoUpload);
+
+
+  function redirectByRole(role) {
+  if (role === "admin") window.location.href = "Admin.php";
+  else if (role === "teacher") window.location.href = "Teacher.html";
+  else window.location.href = "ClasMeyt.html";
+  }
+
+// for my message
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("contact_send.php", {
+        method: "POST",
+        body: new FormData(contactForm)
+      });
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        alert("Message sent! Check your email.");
+        contactForm.reset();
+      } else {
+        alert(data.message || "Failed to send message");
+      }
+    } catch (err) {
+      alert("Server error. Check console.");
+      console.error(err);
+    }
+  });
+}
+
+async function loadCourseOverview(courseId) {
+  try {
+    const res = await fetch(
+      `student_get_course_overview.php?course_id=${courseId}`
+    );
+    const data = await res.json();
+
+    if (data.status !== "success") {
+      currentCourse.overview = "";
+      currentCourse.badge = null;
+      return;
+    }
+
+    currentCourse.overview = data.overview.description || "";
+    currentCourse.badge = data.overview.badge_name || null;
+
+  } catch (e) {
+    console.error("Failed to load course overview", e);
+    currentCourse.overview = "";
+  }
+}
+
+
+
+
+
+
+
+
+  (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98065659c46a0663',t:'MTc1ODA4ODM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+

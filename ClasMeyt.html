@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024">
     <title>Welcome ClasMeyt!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="Clas.css">
@@ -25,7 +25,7 @@
             </div>
         </header>
         
-            
+        
         
     
 
@@ -37,7 +37,7 @@
                 <button onclick="showSection('dashboard')" class="nav-item px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100 active">
                 Dashboard
                 </button>
-                <button onclick="showSection('courses')" class="nav-item px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100">
+                <button onclick="showSection('courses', this)" class="nav-item px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100">
                 Courses
                 </button>
                 <button onclick="showSection('my-courses')" class="nav-item px-4 py-2 rounded-lg font-medium transition-colors hover:bg-purple-100">
@@ -78,12 +78,12 @@
                     <div class="text-gray-600 font-medium">Badges Earned</div>
                 </div>
                 <div class="bg-white/70 rounded-xl shadow-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-purple-500">85%</div>
-                    <div class="text-gray-600 font-medium">Average Grade</div>
+                <div class="text-3xl font-bold text-purple-500" id="averageGrade">0%</div>
+                <div class="text-gray-600 font-medium">Average Grade</div>
                 </div>
                 <div class="bg-white/70 rounded-xl shadow-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-orange-500">12</div>
-                    <div class="text-gray-600 font-medium">Available Courses</div>
+                <div class="text-3xl font-bold text-orange-500" id="availableCourses">0</div>
+                <div class="text-gray-600 font-medium">Available Courses</div>
                 </div>
             </div>
         </div>
@@ -93,12 +93,50 @@
         <div id="courses" class="section hidden">
             <div class=" rounded-xl shadow-lg p-8" style="background-color: white;">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">Available Courses</h2>
+                <!-- Search + Filters -->
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+    <input
+    id="courseSearch"
+    type="text"
+    placeholder="Search course name, subject, teacher..."
+    class="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+    />
+
+    <select
+    id="courseSubjectFilter"
+    class="w-full border border-gray-200 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+    >
+    <option value="all">All Subjects</option>
+    </select>
+
+    <select
+    id="courseEnrollFilter"
+    class="w-full border border-gray-200 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+    >
+    <option value="all">All</option>
+    <option value="enrolled">Enrolled</option>
+    <option value="not_enrolled">Not Enrolled</option>
+    </select>
+
+    <select
+    id="courseSort"
+    class="w-full border border-gray-200 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+    >
+    <option value="name_asc">Sort: Name (A-Z)</option>
+    <option value="name_desc">Sort: Name (Z-A)</option>
+    <option value="progress_desc">Sort: Progress (High-Low)</option>
+    <option value="progress_asc">Sort: Progress (Low-High)</option>
+    </select>
+    </div>
+</div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="allCoursesContainer">
                     <!--Dto ung mga Course lalabas -->
                 </div>
             </div>
         </div>
-
+        
 
         <!-- View ng Detail course-->
         <div id="course-detail" class="section hidden">
@@ -115,20 +153,26 @@
                 <!-- Course Tabs  tab ng mga courses -->
                 <div class="border-b border-gray-200 mb-6">
                     <nav class="flex space-x-8">
-                        <button onclick="showCourseTab('lessons')" class="course-tab py-2 px-1 border-b-2 font-medium text-sm tab-active border-blue-500 text-blue-600">
-                            📖 Lessons
+                        <button onclick="showCourseTab('lessons')" class="course-tab flex items-center gap-2">
+                        <img src="images/book.png" class="w-5 h-5">
+                        Lessons
                         </button>
-                        <button onclick="showCourseTab('practices')" class="course-tab py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700">
-                            ✏️ Practices
+                        <button onclick="showCourseTab('practices')" class="course-tab flex items-center gap-2">
+                        <img src="images/pencil.png" class="w-5 h-5">
+                        Practices
                         </button>
-                        <button onclick="showCourseTab('quiz')" class="course-tab py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700">
-                            📝 Quizs
+                        <button
+                        id="quizTabBtn" onclick="showCourseTab('quiz')" class="course-tab flex items-center gap-2">
+                        <img src="images/quiz.png" class="w-5 h-5">
+                        Quizs
                         </button>
-                        <button onclick="showCourseTab('examples')" class="course-tab py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700">
-                            💡 Examples
+                        <button onclick="showCourseTab('examples')" class="course-tab flex items-center gap-2">
+                        <img src="images/bulb.png" class="w-5 h-5">
+                        Examples
                         </button>
-                        <button onclick="showCourseTab('resources')" class="course-tab py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700">
-                            📁 Resources
+                        <button onclick="showCourseTab('resources')" class="course-tab flex items-center gap-2">
+                        <img src="images/folder.png" class="w-5 h-5">
+                        Resources
                         </button>
                     </nav>
                 </div>
@@ -176,21 +220,21 @@
                                 <span class="text-2xl"></span> <!-- Address -->
                                 <div>
                                     <p class="font-medium text-gray-800">Address</p>
-                                    <p class="text-gray-600">123 Education Street, Learning City, LC 12345</p>
+                                    <p class="text-gray-600">Blk. 4 Lot 13C Yokohama St. South LEgacy Homes Bf Internationas Village Las Piñas</p>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <span class="text-2xl"></span> <!-- phone numer hehe -->
                                 <div>
                                     <p class="font-medium text-gray-800">Phone</p>
-                                    <p class="text-gray-600">+63 9XX XXX XXXX</p>
+                                    <p class="text-gray-600">+63 991 693 7628</p>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <span class="text-2xl"></span> <!-- email hehe -->
                                 <div>
                                     <p class="font-medium text-gray-800">Email</p>
-                                    <p class="text-gray-600">info@kupal.edu.ph</p>
+                                    <p class="text-gray-600">25-0301c@sgen.edu.ph</p>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
@@ -204,22 +248,40 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-800 mb-4">Send us a Message</h3>
-                        <form class="space-y-4" onsubmit="handleContactForm(event)">
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-2">Name</label>
-                                <input type="text" placeholder="Enter your name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-2">Email</label>
-                                <input type="email" placeholder="Enter your Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea rows="4" placeholder="Write your Message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
-                                Send Message
-                            </button>
+                        <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input
+                            type="text"
+                            name="name"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input
+                            type="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea
+                            name="message"
+                            rows="4"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium"
+                        >
+                            Send Message
+                        </button>
                         </form>
                     </div>
                 </div>
@@ -230,72 +292,47 @@
         <!-- Account Section -->
         <div id="account" class="section hidden">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Profile Info -->
+                
                 <div class="bg-white rounded-xl shadow-lg p-8 text-center">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">Profile Information</h3>
                     <div class="text-center mb-6">
-                        <div class="w-24 h-24 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">
-                            JS
+                        <div class="w-24 h-24 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 relative overflow-hidden">
+                        <img id="profilePhotoImg" class="absolute inset-0 w-full h-full object-cover hidden" alt="Profile Photo">
+                        <span id="profileInitials">JS</span>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-800">Maluption</h4>
-                        <p class="text-gray-600">Student ID: 0000000</p>
-                        <p class="text-gray-600">Grade 12</p>
+                        <h4 class="text-xl font-bold text-gray-800" id="profileName">Maluption</h4>
+                        <p class="text-gray-600">Student ID: <span id="profileStudentId">0000000</span></p>
+                        <p class="text-gray-600">Grade <span id="profileGrade">12</span></p>
                     </div>
                     <div class="space-y-3">
                         <div class="flex justify-between">
                             <span class="text-gray-600">Email:</span>
-                            <span class="font-medium">malupiton@kupal.edu.ph</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Phone:</span>
-                            <span class="font-medium">(555) 987-6543</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Joined:</span>
-                            <span class="font-medium">September 2023</span>
+                            <span class="font-medium" id="profileEmail">malupiton@kupal.edu.ph</span>
                         </div>
                     </div>
-                    <button class="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors">
+                        <input
+                        id="profilePhotoInput"
+                        type="file"
+                        accept="image/*"
+                        class="hidden"
+                        />
+
+                        <button
+                        type="button"
+                        onclick="openPhotoPicker()"
+                        class="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg"
+                        >
                         Edit Profile
+                        </button>
+
+
+
+                    <button type="button" onclick="logout()"
+                    class="w-full mt-3 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors">
+                    Logout
                     </button>
+                    
 
-                    <button onclick="logout()" 
-                class="w-full mt-3 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg font-medium transition-colors">
-                Logout
-                </button>
-                <script>
-    // Protect the page: if no loggedUser, go to Welcome.html
-    (function initAuth(){
-        const sid = localStorage.getItem('loggedUser');
-        const displayName = localStorage.getItem('displayName') || null;
-
-        if (!sid) {
-        window.location.href = 'Welcome.html';
-        return;
-        }
-
-      // fill header / profile
-        document.getElementById('displayUser').textContent = displayName ? displayName : sid;
-        const profileNameEl = document.getElementById('profileName');
-        const profileSIDEl = document.getElementById('profileSID');
-        if (profileNameEl) profileNameEl.textContent = displayName ? displayName : 'Student';
-        if (profileSIDEl) profileSIDEl.textContent = 'Student ID: ' + sid;
-    })();
-
-    function logout(){
-        localStorage.removeItem('loggedUser');
-      // optionally remove displayName kept from register
-      // localStorage.removeItem('displayName');
-        window.location.href = 'Welcome.html';
-    }
-
-    // simple tab system
-    function showSection(id){
-        document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
-        const el = document.getElementById(id);
-        if (el) el.classList.remove('hidden');
-    }
-    </script>
                 </div>
                 
 
@@ -311,7 +348,9 @@
 
                 <!-- Badges in Account -->
                 <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">My Badges 🏆</h3>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">My Badges
+                        <img src="images/trophy.png" alt="Trophy" class="w-6 h-6">
+                    </h3>
                     <div class="grid grid-cols-2 gap-4" id="accountBadges">
                         <!-- Badges will be populated here -->
                     </div>
@@ -338,7 +377,34 @@
         </div>
     </div>
     
-    
+    </div><!-- Badge Celebration Modal -->
+    <div id="badgeCelebrationModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="badge-celebration-container text-center">
+    <div class="badge-celebration-content bg-white rounded-3xl p-12 max-w-md mx-4 shadow-2xl">
+    <div class="mb-6">
+    <div class="badge-icon-large text-8xl mb-4" id="badgeIconLarge">
+    </div>
+    <div class="confetti-container">
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    </div>
+    </div>
+    <h2 class="text-4xl font-bold text-gray-800 mb-3"> Congratulations! </h2>
+    <p class="text-xl font-semibold text-blue-600 mb-2">You earned a new badge!</p>
+    <h3 class="text-3xl font-bold text-gray-800 mb-4" id="badgeNameDisplay">Badge Name</h3>
+    <p class="text-gray-600 mb-8" id="badgeDescriptionDisplay">You've successfully completed the course requirements!</p><button onclick="closeBadgeCelebration()" class="bg-blue-500 hover:bg-blue-600 hover:from-blue-600 hover:to-indigo-700 text-white px-8 py-3 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg"> Awesome!  </button>
+    </div>
+    </div>
+    </div>
+
 
     <script src="Klas.js"></script>
 </html>

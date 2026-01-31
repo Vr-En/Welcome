@@ -185,14 +185,14 @@ transform: translateY(-5px);
 .step-icon {
 width: 80px;
 height: 80px;
-background: linear-gradient(135deg, #4f46e5, #7c3aed);
+object-fit: contain;
+margin: 0 auto;
 border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
 margin: 0 auto 1rem;
 font-size: 40px;
-box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
 }
 
 /* Contact */

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Teacher Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+</script>
+
+</head>
+<body class="min-h-screen bg-gray-100 p-6">
+
+<div class="max-w-5xl mx-auto">
+
+  <!-- HEADER -->
+  <div class="bg-white rounded-xl shadow-lg p-6 mb-6 flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-gray-800">Teacher Dashboard</h1>
+    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded-lg">
+      Logout
+    </button>
+  </div>
+
+
+  <!--  MY COURSES VIEW -->
+  
+  <section id="teacher-dashboard" class="bg-white rounded-xl shadow p-6">
+    <h2 class="text-xl font-bold mb-4">My Courses</h2>
+    <div id="courseList" class="space-y-4"></div>
+  </section>
+
+
+  <!-- COURSE OVERVIEW -->
+
+  <section id="teacher-course-overview" class="hidden bg-white rounded-xl shadow p-6">
+    <button onclick="backToCourses()" class="text-blue-600 mb-4">← Back to My Courses</button>
+
+    <h2 id="overviewCourseTitle" class="text-2xl font-bold mb-4"></h2>
+
+    <textarea id="overviewDesc" class="w-full border rounded p-3 mb-3"
+      placeholder="Course description"></textarea>
+
+    <textarea id="overviewTopics" class="w-full border rounded p-3 mb-3"
+      placeholder="One topic per line"></textarea>
+
+    <label class="block text-sm font-medium text-gray-700 mb-1">
+      Course Badge
+    </label>
+
+    <select
+      id="badgeName"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white"
+    >
+      <option value="">— Select Badge —</option>
+    </select>
+    
+
+    <input id="badgeRequirement" class="w-full border rounded p-3 mb-4"
+      placeholder="Badge requirement">
+
+    <button
+      id="saveOverviewBtn"
+      type="button"
+      class="bg-blue-500 text-white px-4 py-2 rounded">
+      Save Overview
+    </button>
+
+  </section>
+
+
+  <!--  LESSONS MANAGER -->
+
+  <section id="teacher-course-lessons" class="hidden bg-white rounded-xl shadow p-6">
+    <button onclick="backToCourses()" class="text-blue-600 mb-4">← Back to My Courses</button>
+
+    <h2 id="lessonsCourseTitle" class="text-2xl font-bold mb-4"></h2>
+
+    <div class="mb-6">
+      <h3 class="font-bold mb-2">Add Lesson</h3>
+
+      <input id="lessonTitle" class="border p-2 w-full mb-2" placeholder="Lesson Title">
+      <input id="lessonDuration" class="border p-2 w-full mb-2" placeholder="Duration">
+      <textarea id="lessonDescription" class="border p-2 w-full mb-2"
+        placeholder="Lesson description"></textarea>
+      <textarea id="lessonObjectives" class="border p-2 w-full mb-2"
+        placeholder="Objectives (one per line)"></textarea>
+      <input id="lessonLink" class="border p-2 w-full mb-3"
+        placeholder="Lesson link">
+
+      <button onclick="saveLesson()"
+        class="bg-green-500 text-white px-4 py-2 rounded">
+        Save Lesson
+      </button>
+    </div>
+    </section>
+    
+
+    <!--  PRACTICES MANAGER -->
+<section id="teacher-course-practices" class="hidden bg-white rounded-xl shadow p-6">
+  <button onclick="backToCourses()" class="text-blue-600 mb-4">
+    ← Back to My Courses
+  </button>
+
+  <h2 id="practicesCourseTitle" class="text-2xl font-bold mb-4"></h2>
+
+<div class="mb-6">
+  <h3 class="font-bold mb-2">Add Practice</h3>
+
+  <input id="practiceTitle" type="text"
+    class="border p-2 w-full mb-2"
+    placeholder="Practice Title">
+
+  <input id="practiceMinutes" type="text"
+    class="border p-2 w-full mb-2"
+    placeholder="Minutes (e.g. 30)">
+
+  <input id="practiceLink" type="text"
+    class="border p-2 w-full mb-3"
+    placeholder="Practice Link">
+
+  <button
+  type="button" 
+  id="savePracticeBtn"
+    class="bg-orange-500 text-white px-4 py-2 rounded">
+    Save Practice
+  </button>
+</div>
+
+  <div>
+    <h3 class="font-bold mb-2">Existing Practices</h3>
+    <div id="practiceList" class="space-y-2"></div>
+  </div>
+</section>
+</div>
+
+<!-- QUIZZES -->
+<div id="teacher-course-quiz" class="hidden">
+  <div class="flex justify-center">
+    <div class="w-full max-w-4xl space-y-6">
+      <button
+        onclick="backToCourses()"
+        class="text-blue-600 mb-4 hover:underline">
+        ← Back to My Courses
+      </button>
+      <h2 class="text-2xl font-bold" id="quizCourseTitle">
+        Create Quiz
+      </h2>
+      <div class="bg-white p-6 rounded-xl shadow border space-y-3">
+        <input
+          id="quizTitle"
+          class="w-full border p-2 rounded"
+          placeholder="Quiz title (e.g. Chapter 1 Quiz)"
+        />
+        <input
+          id="quizPassing"
+          type="number"
+          class="w-full border p-2 rounded"
+          placeholder="Passing score (e.g. 70)"
+        />
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          Badge for Perfect Score
+        </label>
+
+        <select
+          id="quizBadge"
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white"
+        >
+          <option value="">— No Badge —</option>
+        </select>
+
+      </div>
+      <div id="quizQuestions" class="space-y-4"></div>
+      <div class="flex gap-3">
+        <button
+          onclick="addQuizQuestion()"
+          class="bg-blue-500 text-white px-4 py-2 rounded">
+          Add Question
+        </button>
+        <button
+          onclick="saveQuiz()"
+          class="bg-green-500 text-white px-6 py-2 rounded">
+          Save Quiz
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Example -->
+<div id="teacher-course-examples" class="hidden">
+  <div class="flex justify-center">
+    <div class="w-full max-w-4xl">
+      <button
+        onclick="backToCourses()"
+        class="text-blue-600 text-sm mb-4 hover:underline">
+        ← Back to My Courses
+      </button>
+      <div class="bg-white rounded-xl shadow p-8">
+        <h2
+          id="examplesCourseTitle"
+          class="text-2xl font-bold text-gray-800 mb-6">
+          Examples
+        </h2>
+
+        <h3 class="text-lg font-semibold mb-4">
+          Add Example
+        </h3>
+
+        <div class="space-y-4">
+          <input
+            id="exampleTitle"
+            class="w-full border rounded-lg px-4 py-2"
+            placeholder="Example title"
+          />
+
+          <textarea
+            id="exampleDescription"
+            class="w-full border rounded-lg px-4 py-2"
+            placeholder="Short description"
+            rows="3"
+          ></textarea>
+
+          <input
+            id="exampleLink"
+            class="w-full border rounded-lg px-4 py-2"
+            placeholder="Example link"
+          />
+
+          <button
+            onclick="saveExample()"
+            class="bg-green-500 text-white px-6 py-2 rounded-lg">
+            Save Example
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="teacher-course-resources"
+  class="hidden max-w-4xl mx-auto space-y-6">
+
+  <!-- BACK -->
+  <button
+    onclick="backToCourses()"
+    class="text-blue-600 mb-4">
+    ← Back to My Courses
+  </button>
+
+  <h2
+    class="text-2xl font-bold"
+    id="resourcesCourseTitle">
+    Course Resources
+  </h2>
+
+  <!-- UPLOAD -->
+  <div class="bg-white p-6 rounded-lg border space-y-4">
+      <input
+      id="resourceName"
+      class="w-full border p-2 rounded"
+      placeholder="Resource name (e.g. Calculus Guide)"
+    />
+
+    <input
+      id="resourceFile"
+      type="file"
+      class="w-full border p-2 rounded"
+    />
+
+    <button
+      onclick="uploadResource()"
+      class="bg-green-500 text-white px-6 py-2 rounded">
+      Upload Resource
+    </button>
+
+  </div>
+</div>
+
+
+
+
+<script src="teacher.js"></script>
+</body>
+
+</html>

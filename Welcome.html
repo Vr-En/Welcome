@@ -2,16 +2,10 @@
 <html lang="en">
     <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=1024">
     <title>ClasMeyt - Senior High Portal</title>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="welcome1.css" />
-
-    <!-- Element SDKs -->
     <script src="/_sdk/element_sdk.js"></script>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
 
@@ -20,7 +14,6 @@
 
     <body class="h-screen bg-[url('images/Background.png')] bg-cover bg-center bg-no-repeat bg-fixed">
 
-    <!-- Header -->
     <header class="header">
         <nav class="nav-container">
         <div class="logo">
@@ -47,9 +40,7 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
         <section id="home" class="hero">
         <h1 id="hero-headline">Welcome to ClasMeyt</h1>
         <p id="hero-subtitle">
@@ -63,12 +54,13 @@
         </button>
         </section>
 
-        <!-- How It Works Section -->
         <section id="how-it-works" class="section how-it-works">
         <h2 id="how-it-works-title">How It Works</h2>
         <div class="steps">
             <div class="step">
-            <div class="step-icon">👨‍🎓</div>
+            <div class="step-icon">
+                <img src="images/scholar.png" alt="Sign Up">
+            </div>
             <h3>Sign Up</h3>
             <p>
             Create your account in seconds with our simple registration process.
@@ -76,14 +68,18 @@
             </p>
             </div>
             <div class="step">
-            <div class="step-icon">🔍</div>
+            <div class="step-icon">
+                <img src="images/scope.png" alt="Explore Course">
+            </div>
             <h3>Explore Courses</h3>
             <p>
             Enroll to Seniorhigh subjects you want to Learn.
             </p>
             </div>
             <div class="step">
-            <div class="step-icon">🖌️</div>
+            <div class="step-icon">
+                <img src="images/medal.png" alt="Claim Badges">
+            </div>
             <h3>Claim Badges</h3>
             <p>
             Start Enrolling and complete your courses
@@ -137,40 +133,26 @@
         <span class="close" onclick="closeModal('loginModal')">&times;</span>
         <h2 class=" text-2xl text-bold text-gray-800">Login</h2>
 
-        <form onsubmit="handleLogin(event)">
-        <div id="login-success" class="success-message">
-            Welcome back! You've successfully logged in.
-        </div>
+        <form id="loginForm">
+        <div id="login-error" style="display:none; color:red; margin-bottom:10px;"></div>
 
         <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Student ID</label>
-        <input id="username" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your student ID" required>
+        <input id="username" name="student_id" type="text"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+        placeholder="Enter your student ID" required>
         </div>
 
         <div class="mb-6">
         <label class="block text-gray-700 font-medium mb-2">Password</label>
-        <input id="password" type="password" class="w-full p  x-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your password" required>
+        <input id="password" name="password" type="password"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+        placeholder="Enter your password" required>
         </div>
-        <button onclick="login()" type="submit" class="btn btn-primary">Login</button>
-        <script>
-        function login() {
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
 
-        if (username === '' || password === '') {
-        alert('Please enter both username and password.');
-        return;
-        }
+        <button type="submit" class="btn btn-primary">Login</button>
+</form>
 
-      // In real systems you'd check credentials from a database,
-      // but for now we’ll just store the username.
-        localStorage.setItem('loggedUser', username);
-
-      // Redirect to ClasMeyt dashboard
-        window.location.href = 'ClasMeyt.html';
-    }
-    </script>
-        </form>
 
         <div class="switch-form">
         Don't have an account?
@@ -185,24 +167,29 @@
         <span class="close" onclick="closeModal('registerModal')">&times;</span>
         <h2 class="text-2xl font-bold text-gray-800" >Join ClasMeyt</h2>
 
-        <form onsubmit="handleRegister(event)">
+        <form id="registerForm">
         <div id="register-success" class="success-message">
             Account created successfully! Welcome to ClasMeyt.
         </div>
-
+        <div id="register-error" style="display:none; color:red; margin-bottom:10px;"></div>
         <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Full Name</label>
-        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your full name" required>
+        <input name="fullname" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your full name" required>
         </div>
 
         <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Email</label>
+        <input name="email" type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your email" required>
+</div>
+
+        <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Student ID</label>
-        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your student ID" required>
+        <input name="student_id" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Enter your student ID" required>
         </div>
 
         <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Grade Level</label>
-        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+        <select name="grade_level" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
             <option value="">Select grade level</option>
             <option value="11">Grade 11</option>
             <option value="12">Grade 12</option>
@@ -211,7 +198,7 @@
 
         <div class="mb-6">
         <label class="block text-gray-700 font-medium mb-2">Password</label>
-        <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Create a password" required>
+        <input name="password" type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Create a password" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Create Account</button>
@@ -224,6 +211,5 @@
     </div>
     </div>
 
-    <!-- Custom JS -->
     <script src="welcome2.js"></script>
 </html>
